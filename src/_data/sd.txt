@@ -1,0 +1,87 @@
+"use client"
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import tcc from "@/public/images/tcc.png";
+import cover2 from "@/public/images/table-cover-carousel.png";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
+
+export default function Carousel() {
+  const slides = [
+    { id: 1, src: tcc, alt: "Table Cover 1" },
+    { id: 2, src: cover2, alt: "Table Cover 2" },
+    // Add more slides here
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+    );
+  };
+
+  useEffect(() => {
+    const slideInterval = setInterval(nextSlide, 5000); // Auto slide every 5 seconds
+    return () => clearInterval(slideInterval); // Clear interval on component unmount
+  }, []);
+
+  return (
+    <>
+      <div className="relative w-full h-auto md:h-96 overflow-hidden ">
+        {/* Slides Container */}
+        <div
+          className="flex transition-transform ease-in-out duration-500 "
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((slide) => (
+            <div
+              key={slide.id}
+              className="w-full flex-shrink-0 min-h-max md:h-96 relative "
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                className="object-contain md:object-fill w-full h-full"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Previous Button */}
+        <button
+          onClick={prevSlide}
+          className="absolute top-1/2 left-1 md:left-4 transform -translate-y-1/2 text-white p-2 rounded-full shadow-lg hover:bg-white hover:text-secondary transition-colors text-xl md:text-3xl"
+        >
+          <IoIosArrowBack />
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          className="absolute top-1/2 right-1 md:right-4 transform -translate-y-1/2  text-white p-2 rounded-full shadow-lg hover:bg-white hover:text-secondary transition-colors text-xl md:text-3xl"
+        >
+          <IoIosArrowForward />
+        </button>
+      </div>
+      {/* Dots for Slide Indicators */}
+      <div className="items-center flex gap-2 w-full h-2 justify-center mt-3 mb-3">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentSlide(idx)}
+            className={`w-3 h-3 rounded-full ${
+              idx === currentSlide ? "bg-secondary" : "bg-black"
+            }`}
+          />
+        ))}
+      </div>
+    </>
+  );
+}
