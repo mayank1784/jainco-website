@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 import logo from "@/public/static/jainco_logo.png";
 import Link from "next/link";
@@ -10,46 +11,27 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { categories } from "../_data/categories";
+
 import SearchInput from "./SearchBar";
+import { Category } from "@/@types/types";
 
 type NavItem = {
   label: string;
   link?: string;
+  id?: string;
   children?: NavItem[];
   iconImage?: string;
 };
-const cate: NavItem[] = categories.map((cat) => ({
-  label: cat.name,
-  link: cat.name,
-  iconImage: cat.image,
-  children: cat.products.map((prod) => ({
-    label: prod,
-  })),
-}));
-const navItems: NavItem[] = [
-  {
-    label: "Features",
-    link: "#",
-  },
-  {
-    label: "Categories",
-    link: "#",
-    children: cate,
-  },
-  {
-    label: "Careers",
-    link: "#",
-  },
-  {
-    label: "About",
-    link: "#",
-  },
-];
 
-export default function Navbar() {
+interface NavbarProps {
+  categories: Category[];
+}
+
+export default function Navbar({ categories }: NavbarProps) {
   const [animationParent] = useAutoAnimate();
   const [isSideMenuOpen, setSideMenue] = useState(false);
+  const pathName = usePathname(); // Get the Next.js router
+
   function openSideMenu() {
     setSideMenue(true);
   }
@@ -57,108 +39,161 @@ export default function Navbar() {
     setSideMenue(false);
   }
 
+  // Close the side menu on route change
+  useEffect(() => {
+    setSideMenue(false);
+  }, [pathName]);
+
+  const cate: NavItem[] = categories.map((cat) => ({
+    label: cat.name,
+    link: cat.name.replace(/\s+/g, "-").toLowerCase(),
+    id: cat.id,
+    iconImage: cat.image,
+    children: cat.products.map((prod) => ({
+      label: prod.name,
+      link: prod.name.replace(/\s+/g, "-").toLowerCase(),
+      id: prod.id,
+    })),
+  }));
+
+  const navItems: NavItem[] = [
+    {
+      label: "Features",
+      link: "#",
+    },
+    {
+      label: "Categories",
+      link: "#",
+      children: cate,
+    },
+    {
+      label: "Careers",
+      link: "#",
+    },
+    {
+      label: "About",
+      link: "#",
+    },
+  ];
+
   return (
-    <div className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm gap-1">
-      {/* left side  */}
-      <section
-        ref={animationParent}
-        className="flex items-center gap-10 relative"
-      >
-        {/* logo */}
-        <Image src={logo} alt="logo" className="h-auto w-16" />
-        {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
+    <>
+      <nav className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm gap-1 items-center">
+        {/* left side  */}
+        <section
+          ref={animationParent}
+          className="flex items-center gap-10 relative"
+        >
+          {/* logo */}
+          <Link href={'/'} className="cursor-pointer">
+          <Image src={logo} alt="logo" className="h-auto w-16" priority /></Link>
+          {isSideMenuOpen && (
+            <MobileNav closeSideMenu={closeSideMenu} navItems={navItems} />
+          )}
 
-        <div className="hidden md:flex items-center gap-4 transition-all">
-          {navItems.map((d, i) => (
-            <Link
-              key={i}
-              href={d.link ?? "#"}
-              className="relative group px-2 py-3 transition-all"
-            >
-              <p className="flex cursor-pointer items-center gap-2 text-primary font-iregular group-hover:text-secondary">
-                <span>{d.label}</span>
+          <div className="hidden md:flex items-center gap-4 transition-all">
+            {navItems.map((d, i) => (
+              <Link
+                key={i}
+                href={d.link ?? "/"}
+                className="relative group px-2 py-3 transition-all"
+              >
+                <p className="flex cursor-pointer items-center gap-2 text-primary font-iregular group-hover:text-secondary">
+                  <span>{d.label}</span>
+                  {d.children && (
+                    <IoIosArrowDown className="rotate-180 transition-all group-hover:rotate-0" />
+                  )}
+                </p>
+
+                {/* Dropdown */}
                 {d.children && (
-                  <IoIosArrowDown className="rotate-180 transition-all group-hover:rotate-0" />
-                )}
-              </p>
-
-              {/* Dropdown */}
-              {d.children && (
-                <div className="fixed left-10 right-10 hidden top-12 z-50 mt-5 border border-secondary mx-auto flex-col gap-4 rounded-lg bg-white shadow-lg group-hover:flex max-h-[85vh] overflow-y-auto">
-                  {/* Wrapper for content */}
-                  <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-start px-0 gap-0">
-                    {/* Each Column */}
-                    {d.children.map((cat, idx) => (
-                      <div
-                        className="flex flex-col gap-2 border border-secondary p-2"
-                        key={`${cat.label}_${idx}`}
-                      >
-                        <div className="flex flex-row w-full min-h-max gap-4">
-                          {/* image div */}
-                          <div className="flex overflow-hidden h-20 w-20 border border-secondary rounded-lg">
-                            <Image
-                              src={cat.iconImage || ""}
-                              alt={cat.label}
-                              width={100}
-                              height={100}
-                              className="border"
-                              style={{ objectFit: "cover" }}
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className="flex flex-col gap-1">
-                            <h4 className="font-lbold text-xl capitalize px-2">
-                              {cat.label}
-                            </h4>
-                            {cat.children && cat.children.length > 0 && (
-                              <ul className=" list-disc">
-                                {cat.children.map((prod, idx) => (
-                                  <li
-                                    className="text-sm font-rregular list-item"
-                                    key={`${prod.label}_${idx}`}
-                                  >
-                                    {prod.label}
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
+                  <div className="fixed left-10 right-10 hidden top-12 z-50 mt-5 border border-secondary mx-auto flex-col gap-4 rounded-lg bg-white shadow-lg group-hover:flex max-h-[85vh] overflow-y-auto">
+                    {/* Wrapper for content */}
+                    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-start px-0 gap-0">
+                      {/* Each Column */}
+                      {d.children.map((cat, idx) => (
+                        <div
+                          className="flex flex-col gap-2 border border-secondary p-2"
+                          key={`${cat.label}_${idx}`}
+                        >
+                          <div className="flex flex-row w-full min-h-max gap-4">
+                            {/* image div */}
+                            <div className="flex overflow-hidden h-20 w-20 border border-secondary rounded-lg relative">
+                              <Image
+                                src={cat.iconImage || ""}
+                                alt={cat.label}
+                                fill
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className="flex flex-col gap-1">
+                              <Link href={`/${cat.link}/${cat.id}`}>
+                                <h4 className="font-lbold text-xl capitalize px-2">
+                                  {cat.label}
+                                </h4>
+                              </Link>
+                              {cat.children && cat.children.length > 0 && (
+                                <ul className=" list-disc">
+                                  {cat.children.map((prod, idx) => (
+                                    <Link
+                                      href={`/${cat.link}/${prod.link}/${prod.id}`}
+                                      key={idx}
+                                      className="cursor-pointer"
+                                    >
+                                      <li
+                                        className="text-sm font-rregular list-item capitalize"
+                                        key={`${prod.label}_${idx}`}
+                                      >
+                                        {prod.label}
+                                      </li>
+                                    </Link>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </Link>
-          ))}
-        </div>
+                )}
+              </Link>
+            ))}
+          </div>
 
-        {/* navitems */}
-      </section>
+          {/* navitems */}
+        </section>
 
-      {/* right side data */}
-      <section className="items-center flex">
-        <SearchInput />
-      </section>
-      <section className=" hidden md:flex items-center gap-8 ">
-        <button className="h-fit text-primary transition-all hover:text-black/90">
-          Login
-        </button>
+        {/* right side data */}
+        <section className="items-center justify-center flex">
+          <SearchInput />
+        </section>
+        <section className=" hidden md:flex items-center gap-8 ">
+          <button className="h-fit text-primary transition-all hover:text-black/90">
+            Login
+          </button>
 
-        <button className="h-fit rounded-xl border-2 border-secondary px-4 py-2 text-primary transition-all hover:border-black hover:text-black/90">
-          Register
-        </button>
-      </section>
+          <button className="h-fit rounded-xl border-2 border-secondary px-4 py-2 text-primary transition-all hover:border-black hover:text-black/90">
+            Register
+          </button>
+        </section>
 
-      <FiMenu
-        onClick={openSideMenu}
-        className="cursor-pointer text-4xl md:hidden text-black"
-      />
-    </div>
+        <FiMenu
+          onClick={openSideMenu}
+          className="cursor-pointer text-4xl md:hidden text-black"
+        />
+      </nav>
+    </>
   );
 }
 
-function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
+function MobileNav({
+  closeSideMenu,
+  navItems,
+}: {
+  closeSideMenu: () => void;
+  navItems: NavItem[];
+}) {
   return (
     <div className="fixed left-0 top-0 flex h-full min-h-screen w-full justify-end bg-black/60 md:hidden z-50">
       <div className=" h-full w-[70%] bg-white px-4 py-4  overflow-y-auto shadow-secondary shadow-lg">
@@ -225,7 +260,7 @@ function SingleNavItem(d: NavItem) {
           {d.children.map((ch, i) => (
             <Link
               key={i}
-              href={ch.link ?? "#"}
+              href={`/${ch.link}/${ch.id}`}
               className="  flex cursor-pointer items-start justify-start gap-4 text-primary font-rregular hover:text-black"
             >
               {/* image */}
@@ -234,8 +269,8 @@ function SingleNavItem(d: NavItem) {
                   <Image
                     src={ch.iconImage || ""}
                     alt={ch.label}
-                    layout="fill"
-                    className="object-cover"
+                    fill
+                    loading="lazy"
                   />
                 </div>
               )}
@@ -247,12 +282,15 @@ function SingleNavItem(d: NavItem) {
                 {ch.children && ch.children.length > 0 && (
                   <ul className="list-disc">
                     {ch.children.map((prod, idx) => (
-                      <li
+                      <Link
+                        href={`/${ch.link}/${prod.link}/${prod.id}`}
                         key={idx}
-                        className="break-words list-item text-black text-sm"
+                        className="cursor-pointer"
                       >
-                        {prod.label}
-                      </li>
+                        <li className="break-words list-item text-black text-sm">
+                          {prod.label}
+                        </li>
+                      </Link>
                     ))}
                   </ul>
                 )}

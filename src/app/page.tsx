@@ -1,11 +1,11 @@
-import slides from "../_data/carousel";
+import slides from "@/src/_data/carousel";
 import Carousel from "@/src/components/Carousel";
 
 
-
-export default function HomePage() {
+export default async function HomePage() {
   return (
    <>
+   
      <Carousel
      slides={slides}
      slideInterval={4000} // 4 seconds
@@ -23,6 +23,7 @@ export default function HomePage() {
           Explore Our Catalog
         </button>
       </div>
+     
    </>
   );
 }

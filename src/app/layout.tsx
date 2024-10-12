@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-
+import { fetchCategories } from "@/src/_data/categories";
 import "./globals.css";
-import Head from "next/head";
 import { Inter, Roboto } from "next/font/google"; // Google Fonts
 import localFont from "next/font/local"; // For Local Fonts
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
 import { FaWhatsapp } from "react-icons/fa";
+
 
 // Import Google Fonts using next/font/google
 const inter = Inter({
@@ -36,9 +36,12 @@ const spaceMono = localFont({
 
 
 export const metadata: Metadata = {
-  title: "Jainco Decor | Decor your Dream Home",
+  title: {
+    default:"Jainco Decor | Decor your Dream Home",
+    template: "Jainco Decor | %s"
+  },
   description:
-    "Decor Your Dream Home with Jainco Decor. We are the b2b home furnishing brand dealing in table covers, ac covers, mattress protectors, ac curtains, washing machine covers, sofa covers, baby sheets, fridge covers",
+    "Decor Your Dream Home with Jainco Decor. We are the b2b home furnishing brand dealing in pvc table covers, ac covers, mattress protectors, ac curtains, washing machine covers, sofa covers, baby sheets, fridge covers, dining tablecloths",
   keywords: [
     "jain enterprises",
     "karol bagh",
@@ -47,29 +50,44 @@ export const metadata: Metadata = {
     "pvc table cover",
     "ac cover",
     "fridge cover",
+    "dining cover",
+    "wholesaler",
+    "importer",
   ],
+  openGraph: {
+    title: "Jainco Decor | Decor your Dream Home",
+    description: "Home Furnishing | PVC Table Cloths | Appliance Covers | Mattress Protectors | Fridge Covers",
+    url: "https://jaincodecor.com", // Replace with your actual URL
+    
+    type: "website",
+  },
   icons: {
     icon: "/static/favicon.ico",
     apple: "/static/favicon.ico",
   },
+  
 };
 
-export default function RootLayout({
+
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  const {categories} = await fetchCategories();
+  
   return (
     <html
       lang="en"
       className={`${inter.variable} ${roboto.variable} ${leagueSpartan.variable} ${spaceMono.variable} ${process.env.NODE_ENV=='development' ? "debug-screens": ""}`}
     >
-      <Head>
-        <p>dsdsd</p>
-      </Head>
+      
 
       <body className="min-h-screen min-w-full m-0 p-0 bg-zinc-100 flex flex-col">
-        <Navbar/>
+        <Navbar categories={categories}/>
+        
        <main className="flex-grow">
         {children}
         </main>
@@ -79,7 +97,7 @@ export default function RootLayout({
           href="https://wa.me/919891521784" // Add your WhatsApp number here
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-10 right-5 z-999 flex items-center justify-center md:w-16 md:h-16 w-12 h-12 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors"
+          className="fixed bottom-10 right-5 z-999 flex items-center justify-center md:w-16 md:h-16 w-12 h-12 rounded-full bg-[#25d366] text-white shadow-lg hover:bg-[#128C7E] transition-colors"
           aria-label="Chat on WhatsApp"
         >
           <FaWhatsapp size={40} />
