@@ -4,7 +4,8 @@ import { fetchCategories } from '@/src/_data/categories';
 import type { Category } from '@/@types/types';
 import { notFound } from 'next/navigation';
 import Product from './products';
-import Image from 'next/image';
+
+import ImageWithAnimatedOverlay from '@/src/components/ImageWithOverlay';
 
 interface CategoryPageProps {
   categoryData: Category;
@@ -17,14 +18,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ categoryData }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
       {/* Column for Image and Name */}
       <div className="p-3 border flex flex-col gap-2 items-center justify-center">
-        <div className="relative w-56 h-56 border border-secondary">
-          <Image
-            src={categoryData.image}
-            className="w-full h-full object-fill"
-            alt={categoryData.name}
-        fill
-          />
-        </div>
+        
+         <ImageWithAnimatedOverlay imageUrl={categoryData.image} description={categoryData.description} alt={categoryData.name}/>
         <p className="text-lg font-bold text-center mt-2 capitalize">
           {categoryData.name}
         </p>
@@ -37,6 +32,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ categoryData }) => {
     </div>
   
     {/* Render Products */}
+   
     <Product categoryData={categoryData} />
   </div>
   

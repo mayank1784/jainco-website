@@ -3,9 +3,48 @@ import Carousel from "@/src/components/Carousel";
 
 
 export default async function HomePage() {
+
+  // prettier-ignore
+/* eslint-disable */
+const jsonLdData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Jainco Decor",
+  "url": "https://jaincodecor.com",
+  "logo": "https://jaincodecor.com/static/jainco_logo.png",
+  "sameAs": [
+    "https://www.facebook.com/jaincodecor",
+    "https://www.instagram.com/jaincodecor"
+  ],
+  "description": "Jainco Decor specializes in PVC table covers, appliance covers, mattress protectors, fridge covers, and more for B2B buyers.",
+  "founders": [
+    { "@type": "Person", "name": "Atul Jain" },
+    { "@type": "Person", "name": "Tarun Jain" }
+  ],
+  "foundingDate": "2007",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Beadon Pura",
+    "addressLocality": "Karol Bagh",
+    "addressRegion": "DL",
+    "postalCode": "110005",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-11-43621784",
+    "contactType": "Customer Service"
+  }
+};
+
   return (
    <>
    
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+        />
+
      <Carousel
      slides={slides}
      slideInterval={4000} // 4 seconds
