@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import search from "@/public/static/search.png";
+import { useRouter } from "next/navigation";
 // import algolia from "@/public/static/Algolia-logo-white.png"
 interface SearchInputProps {
   initialQuery?: string;
@@ -10,10 +11,12 @@ interface SearchInputProps {
 
 const SearchInput: React.FC<SearchInputProps> = ({ initialQuery }) => {
   const [query, setQuery] = useState(initialQuery || "");
+  const router = useRouter()
   const handleSearch = () => {
     if (!query) {
       return window.alert("Missing query Please input something to search");
     } else {
+      router.push(`/search?q=${encodeURIComponent(query)}`)
       setQuery(""); // Clear the input after searching
     }
   };

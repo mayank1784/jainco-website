@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-
 import { fetchCategories } from "@/src/_data/categories";
-
-
 import "./globals.css";
 import { Inter, Roboto } from "next/font/google"; // Google Fonts
 import localFont from "next/font/local"; // For Local Fonts
@@ -73,10 +70,13 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  
 }: Readonly<{
   children: React.ReactNode;
+  
 }>) {
   const { categories } = await fetchCategories();
+  
 
   return (
     <html
@@ -87,9 +87,10 @@ export default async function RootLayout({
         process.env.NODE_ENV == "development" ? "debug-screens" : ""
       }`}
     >
-      
+       
       <body className="min-h-screen min-w-full m-0 p-0 bg-zinc-100 flex flex-col">
-        <Navbar categories={categories} />
+        <header><Navbar categories={categories} /></header>
+        
         <main className="flex-grow">{children}</main>
         <Footer />
         {/* WhatsApp Floating Icon */}

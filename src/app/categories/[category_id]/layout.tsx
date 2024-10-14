@@ -12,7 +12,9 @@ interface CategoryLayoutProps {
 export async function generateMetadata({
   params,
 }: CategoryLayoutProps): Promise<Metadata> {
-  const catId = params.id;
+  const catIdString = params.category_id;
+  const catId = catIdString.split('-').pop()
+  
 
   if (!catId) {
     return {

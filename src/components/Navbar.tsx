@@ -85,8 +85,9 @@ export default function Navbar({ categories }: NavbarProps) {
           className="flex items-center gap-10 relative"
         >
           {/* logo */}
-          <Link href={'/'} className="cursor-pointer">
-          <Image src={logo} alt="logo" className="h-auto w-16" priority /></Link>
+          <Link href={"/"} className="cursor-pointer">
+            <Image src={logo} alt="logo" className="h-auto w-16" priority />
+          </Link>
           {isSideMenuOpen && (
             <MobileNav closeSideMenu={closeSideMenu} navItems={navItems} />
           )}
@@ -127,7 +128,7 @@ export default function Navbar({ categories }: NavbarProps) {
                               />
                             </div>
                             <div className="flex flex-col gap-1">
-                              <Link href={`/${cat.link}/${cat.id}`}>
+                              <Link href={`/categories/${cat.link}-${cat.id}`}>
                                 <h4 className="font-lbold text-xl capitalize px-2">
                                   {cat.label}
                                 </h4>
@@ -136,7 +137,7 @@ export default function Navbar({ categories }: NavbarProps) {
                                 <ul className=" list-disc">
                                   {cat.children.map((prod, idx) => (
                                     <Link
-                                      href={`/${cat.link}/${prod.link}/${prod.id}`}
+                                      href={`/products/${prod.link}-${prod.id}`}
                                       key={idx}
                                       className="cursor-pointer"
                                     >
@@ -231,36 +232,38 @@ function MobileNav({
 }
 
 function SingleNavItem(d: NavItem) {
-  const [animationParent] = useAutoAnimate();
-  const [isItemOpen, setItem] = useState(false);
+  // const [animationParent] = useAutoAnimate();
+  // const [isItemOpen, setItem] = useState(false);
 
-  function toggleItem() {
-    return setItem(!isItemOpen);
-  }
+  // function toggleItem() {
+  //   return setItem(!isItemOpen);
+  // }
 
   return (
     <Link
-      ref={animationParent}
-      onClick={toggleItem}
+      // ref={animationParent}
+      // onClick={toggleItem}
       href={d.link ?? "#"}
       className="relative px-0 py-3 transition-all "
     >
       <p className="flex cursor-pointer items-center gap-2 text-primary font-iregular group-hover:bg-secondary">
         <span>{d.label}</span>
-        {d.children && (
+        {/* {d.children && (
           // rotate-180
           <IoIosArrowDown
             className={`text-xs transition-all  ${isItemOpen && " rotate-180"}`}
           />
-        )}
+        )} */}
       </p>
 
-      {isItemOpen && d.children && (
+      {/* {isItemOpen && d.children && ( */}
+
+      {d.children && (
         <div className=" w-auto flex-col gap-1 rounded-lg bg-white py-3 flex">
           {d.children.map((ch, i) => (
             <Link
               key={i}
-              href={`/${ch.link}/${ch.id}`}
+              href={`/categories/${ch.link}-${ch.id}`}
               className="  flex cursor-pointer items-start justify-start gap-4 text-primary font-rregular hover:text-black"
             >
               {/* image */}
@@ -283,7 +286,7 @@ function SingleNavItem(d: NavItem) {
                   <ul className="list-disc">
                     {ch.children.map((prod, idx) => (
                       <Link
-                        href={`/${ch.link}/${prod.link}/${prod.id}`}
+                        href={`/products/${prod.link}-${prod.id}`}
                         key={idx}
                         className="cursor-pointer"
                       >

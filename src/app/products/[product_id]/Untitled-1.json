@@ -1,0 +1,917 @@
+[
+  {
+    "hits": [
+      {
+        "category": "table covers",
+        "createdAt": {
+          "_seconds": 1724674002,
+          "_nanoseconds": 671000000
+        },
+        "description": "<p>Kumkum non-woven table covers</p><ul><li>Available in different sizes from 32\" x 45\" 4 seater to 60\" x 108\" 8 seater</li><li>Laced, paipin or plain</li><li>square, rectangle, round and ovals</li></ul>",
+        "lowerPrice": 45,
+        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1724673008229_6ae7a822-cab2-446c-8627-734f764ca5991695460371286DakshyaIndustriesBlueWhitePrinted6-SeaterTableCover1.jpg?alt=media",
+        "name": "Jainco Decor Kumkum table cover",
+        "upperPrice": 150,
+        "variationTypes": [
+          "32\" x 45\"",
+          "40\" x 60\"",
+          "45\" x 70\"",
+          "54\" x 78\"",
+          "60\" x 90\"",
+          "60\" x 108\"",
+          "48\" x 48\"",
+          "54\" x 54\"",
+          "60\" x 60\"",
+          "60\" round",
+          "72\" round",
+          "36\" x 54\"",
+          "36\" x 60\"",
+          "36\" x 36\"",
+          "54\" x 90\"",
+          "rectangle",
+          "square",
+          "round",
+          "oval",
+          "beige lace",
+          "paipin",
+          "plain"
+        ],
+        "objectID": "sjOVFEHicXHHRqro0sBg",
+        "_highlightResult": {
+          "category": {
+            "value": "<em>table</em> covers",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "description": {
+            "value": "<p>Kumkum non-woven <em>table</em> covers</p><ul><li>Available in different sizes from 32\" x 45\" 4 seater to 60\" x 108\" 8 seater</li><li>Laced, paipin or plain</li><li>square, rectangle, round and ovals</li></ul>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "name": {
+            "value": "Jainco Decor Kumkum <em>table</em> cover",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "variationTypes": [
+            {
+              "value": "32\" x 45\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "40\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "45\" x 70\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 78\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 108\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "48\" x 48\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 54\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "72\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "36\" x 54\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "36\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "36\" x 36\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "rectangle",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "square",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "oval",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "beige lace",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "paipin",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "plain",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          ]
+        }
+      },
+      {
+        "category": "table covers",
+        "createdAt": {
+          "_seconds": 1725695571,
+          "_nanoseconds": 854000000
+        },
+        "description": "<p>Transparent clear table covers by Jainco Decor</p><ul><li>Thickness ranging from 0.10mm to 0.30mm</li><li>Gold/Silver Laced border, Imported 4\" Beige Border</li><li>Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</li></ul>",
+        "lowerPrice": 40,
+        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725693466254_clear%20table.jpg?alt=media",
+        "name": "Jainco Decor Transparent Clear Table Cover",
+        "upperPrice": 250,
+        "variationTypes": [
+          "no border",
+          "gold/silver lace",
+          "4\" beige lace",
+          "32\" x 45\"",
+          "40\" x 60\"",
+          "45\" x 70\"",
+          "48\" x 48\"",
+          "54\" x 54\"",
+          "60\" x 60\"",
+          "54\" x 78\"",
+          "60\" x 90\"",
+          "60\" x 108\"",
+          "60\" round",
+          "72\" round",
+          "rectangle",
+          "square",
+          "round",
+          "oval",
+          "rose gold (0.10mm)",
+          "kia gold (0.15mm)",
+          "honda (0.17mm)"
+        ],
+        "objectID": "sCHxCCVw5BFjYU7BBUXx",
+        "_highlightResult": {
+          "category": {
+            "value": "<em>table</em> covers",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "description": {
+            "value": "<p>Transparent clear <em>table</em> covers by Jainco Decor</p><ul><li>Thickness ranging from 0.10mm to 0.30mm</li><li>Gold/Silver Laced border, Imported 4\" Beige Border</li><li>Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</li></ul>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "name": {
+            "value": "Jainco Decor Transparent Clear <em>Table</em> Cover",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "variationTypes": [
+            {
+              "value": "no border",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "gold/silver lace",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "4\" beige lace",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "32\" x 45\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "40\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "45\" x 70\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "48\" x 48\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 54\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 78\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 108\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "72\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "rectangle",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "square",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "oval",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "rose gold (0.10mm)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "kia gold (0.15mm)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "honda (0.17mm)",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          ]
+        }
+      },
+      {
+        "category": "table covers",
+        "createdAt": {
+          "_seconds": 1725705464,
+          "_nanoseconds": 988000000
+        },
+        "description": "<p>Gripper PVC Table cover by Jainco Decor.</p><ul><li>Thick 0.20mm pvc table sheet</li><li>White/Beige Lace Border</li><li>Embossed for shine</li></ul>",
+        "lowerPrice": 75,
+        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725705124152_gripper%206%20seater.jpg?alt=media",
+        "name": "Jainco Decor Gripper Table Cover",
+        "upperPrice": 280,
+        "variationTypes": [
+          "white/beige lace",
+          "32\" x 45\"",
+          "40\" x 60\"",
+          "45\" x 70\"",
+          "48\" x 48\"",
+          "60\" x 60\"",
+          "54\" x 78\"",
+          "60\" x 90\"",
+          "60\" x 108\"",
+          "60\" round",
+          "72\" round",
+          "rectangle",
+          "square",
+          "round",
+          "oval"
+        ],
+        "objectID": "qtpxYDmpqEj1Mk1juX6M",
+        "_highlightResult": {
+          "category": {
+            "value": "<em>table</em> covers",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "description": {
+            "value": "<p>Gripper PVC <em>Table</em> cover by Jainco Decor.</p><ul><li>Thick 0.20mm pvc <em>table</em> sheet</li><li>White/Beige Lace Border</li><li>Embossed for shine</li></ul>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "name": {
+            "value": "Jainco Decor Gripper <em>Table</em> Cover",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "variationTypes": [
+            {
+              "value": "white/beige lace",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "32\" x 45\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "40\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "45\" x 70\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "48\" x 48\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 78\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 108\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "72\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "rectangle",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "square",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "oval",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          ]
+        }
+      },
+      {
+        "category": "table covers",
+        "createdAt": {
+          "_seconds": 1725966407,
+          "_nanoseconds": 869000000
+        },
+        "description": "<p>Vinyl Table Covers by Janico Decor</p><ul><li>Vinyl material.</li><li>Golden and silver table cloths with various sizes</li></ul>",
+        "lowerPrice": 100,
+        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725966190584_shine%20tc.jpg?alt=media",
+        "name": "Jainco Decor Vinyl Shine Table Covers",
+        "upperPrice": 220,
+        "variationTypes": [
+          "plain without lace",
+          "36\" x 54\"",
+          "54\" x 54\"",
+          "54\" x 78\"",
+          "54\" x 90\"",
+          "rectangle",
+          "square"
+        ],
+        "objectID": "nPTdpM1aT7lWbXDzgzrB",
+        "_highlightResult": {
+          "category": {
+            "value": "<em>table</em> covers",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "description": {
+            "value": "<p>Vinyl <em>Table</em> Covers by Janico Decor</p><ul><li>Vinyl material.</li><li>Golden and silver <em>table</em> cloths with various sizes</li></ul>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "name": {
+            "value": "Jainco Decor Vinyl Shine <em>Table</em> Covers",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "variationTypes": [
+            {
+              "value": "plain without lace",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "36\" x 54\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 54\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 78\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "rectangle",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "square",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          ]
+        }
+      },
+      {
+        "category": "table covers",
+        "createdAt": {
+          "_seconds": 1725697719,
+          "_nanoseconds": 142000000
+        },
+        "description": "<p><span style=\"color: rgb(0, 0, 0);\">Transparent Diamond Design table covers by Jainco Decor</span></p><ul><li><span style=\"color: rgb(0, 0, 0);\">Thickness 0.12mm</span></li><li><span style=\"color: rgb(0, 0, 0);\">Gold/Silver Laced border</span></li><li><span style=\"color: rgb(0, 0, 0);\">Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</span></li></ul>",
+        "lowerPrice": 45,
+        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725697078638_DG%204060.jpg?alt=media",
+        "name": "Jainco Decor Diamond Table Cover",
+        "upperPrice": 140,
+        "variationTypes": [
+          "gold/silver lace",
+          "32\" x 45\"",
+          "40\" x 60\"",
+          "45\" x 70\"",
+          "48\" x 48\"",
+          "60\" x 60\"",
+          "54\" x 78\"",
+          "60\" x 90\"",
+          "60\" x 108\"",
+          "60\" round",
+          "72\" round",
+          "rectangle",
+          "square",
+          "round",
+          "oval"
+        ],
+        "objectID": "S9aQXlbtrSoBYBRRLTCE",
+        "_highlightResult": {
+          "category": {
+            "value": "<em>table</em> covers",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "description": {
+            "value": "<p><span style=\"color: rgb(0, 0, 0);\">Transparent Diamond Design <em>table</em> covers by Jainco Decor</span></p><ul><li><span style=\"color: rgb(0, 0, 0);\">Thickness 0.12mm</span></li><li><span style=\"color: rgb(0, 0, 0);\">Gold/Silver Laced border</span></li><li><span style=\"color: rgb(0, 0, 0);\">Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</span></li></ul>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "name": {
+            "value": "Jainco Decor Diamond <em>Table</em> Cover",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "variationTypes": [
+            {
+              "value": "gold/silver lace",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "32\" x 45\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "40\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "45\" x 70\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "48\" x 48\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 78\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 108\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "72\" round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "rectangle",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "square",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "round",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "oval",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          ]
+        }
+      },
+      {
+        "category": "table covers",
+        "createdAt": {
+          "_seconds": 1725648524,
+          "_nanoseconds": 132000000
+        },
+        "description": "<p>Cherry table covers by Jainco Decor</p><ul><li>Golden Shine</li><li>Independent (Panel) and Running (All Over) Designs</li><li>With Lace and without Lace</li></ul>",
+        "lowerPrice": 65,
+        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+        "name": "Jainco Decor Cherry Table Cover",
+        "upperPrice": 270,
+        "variationTypes": [
+          "laced",
+          "plain",
+          "32\" x 45\"",
+          "36\" x 54\"",
+          "36\" x 60\"",
+          "40\" x 60\"",
+          "45\" x 70\"",
+          "48\" x 48\"",
+          "54\" x 54\"",
+          "54\" x 78\"",
+          "54\" x 90\"",
+          "60\" x 90\"",
+          "60\" x 108\"",
+          "60\" x 60\"",
+          "independent (panel)",
+          "running"
+        ],
+        "objectID": "H71tmBZYZkwD5KL7J1e2",
+        "_highlightResult": {
+          "category": {
+            "value": "<em>table</em> covers",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "description": {
+            "value": "<p>Cherry <em>table</em> covers by Jainco Decor</p><ul><li>Golden Shine</li><li>Independent (Panel) and Running (All Over) Designs</li><li>With Lace and without Lace</li></ul>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "name": {
+            "value": "Jainco Decor Cherry <em>Table</em> Cover",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "variationTypes": [
+            {
+              "value": "laced",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "plain",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "32\" x 45\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "36\" x 54\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "36\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "40\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "45\" x 70\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "48\" x 48\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 54\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 78\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "54\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 90\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 108\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "60\" x 60\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "independent (panel)",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "running",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          ]
+        }
+      },
+      {
+        "category": "slap rolls",
+        "createdAt": {
+          "_seconds": 1726815729,
+          "_nanoseconds": 759000000
+        },
+        "description": "<p>PVC Cherry Slap Rolls by Jainco Decor</p><ul><li>Cherry material used in table covers also; golden and silver shine.</li><li>18\" and 24\" width sizes with standard 10m length and customizable lengths.</li></ul>",
+        "lowerPrice": 240,
+        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1726815663472_panni%20cherry.jpg?alt=media",
+        "name": "Jainco Decor PVC Cherry Slap Rolls",
+        "upperPrice": 360,
+        "variationTypes": [
+          "10 mtr",
+          "18\"",
+          "24\""
+        ],
+        "objectID": "xAHhKaY7udyiWboSW7pg",
+        "_highlightResult": {
+          "category": {
+            "value": "slap rolls",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "description": {
+            "value": "<p>PVC Cherry Slap Rolls by Jainco Decor</p><ul><li>Cherry material used in <em>table</em> covers also; golden and silver shine.</li><li>18\" and 24\" width sizes with standard 10m length and customizable lengths.</li></ul>",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "table"
+            ]
+          },
+          "name": {
+            "value": "Jainco Decor PVC Cherry Slap Rolls",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "variationTypes": [
+            {
+              "value": "10 mtr",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "18\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            },
+            {
+              "value": "24\"",
+              "matchLevel": "none",
+              "matchedWords": []
+            }
+          ]
+        }
+      }
+    ],
+    "nbHits": 7,
+    "page": 0,
+    "nbPages": 1,
+    "hitsPerPage": 20,
+    "exhaustiveNbHits": true,
+    "exhaustiveTypo": true,
+    "exhaustive": {
+      "nbHits": true,
+      "typo": true
+    },
+    "query": "table",
+    "params": "query=table&hitsPerPage=20",
+    "index": "products",
+    "renderingContent": {},
+    "processingTimeMS": 1,
+    "processingTimingsMS": {
+      "_request": {
+        "queue": 4,
+        "roundTrip": 158
+      }
+    },
+    "serverTimeMS": 5
+  }
+]

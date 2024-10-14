@@ -12,8 +12,8 @@ export type Product = {
     category:string;
     createdAt:string;
     description: string;
-    lowerPrice: Number;
-    upperPrice: Number;
+    lowerPrice: number;
+    upperPrice: number;
     mainImage: string;
     otherImages?: string[];
     variationTypes: Record<string,string[]>;

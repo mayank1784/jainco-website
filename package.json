@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "algoliasearch": "^5.8.1",
     "client-only": "^0.0.1",
     "firebase": "^10.14.1",
     "flowbite-react": "^0.10.1",
+    "html-to-text": "^9.0.5",
     "next": "14.2.13",
     "next-sitemap": "^4.2.3",
     "react": "^18",
@@ -23,6 +25,7 @@
     "tailwindcss-debug-screens": "^2.2.1"
   },
   "devDependencies": {
+    "@types/html-to-text": "^9.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
