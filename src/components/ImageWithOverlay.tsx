@@ -55,6 +55,7 @@ const ImageWithAnimatedOverlay: React.FC<ImageWithAnimatedOverlayProps> = ({
         alt={alt}
         className="w-full h-full object-fill"
         fill
+        priority
       />
 
       {/* Overlay with sliding animation */}

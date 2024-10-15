@@ -1,917 +1,1114 @@
-[
-  {
-    "hits": [
-      {
-        "category": "table covers",
-        "createdAt": {
-          "_seconds": 1724674002,
-          "_nanoseconds": 671000000
-        },
-        "description": "<p>Kumkum non-woven table covers</p><ul><li>Available in different sizes from 32\" x 45\" 4 seater to 60\" x 108\" 8 seater</li><li>Laced, paipin or plain</li><li>square, rectangle, round and ovals</li></ul>",
-        "lowerPrice": 45,
-        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1724673008229_6ae7a822-cab2-446c-8627-734f764ca5991695460371286DakshyaIndustriesBlueWhitePrinted6-SeaterTableCover1.jpg?alt=media",
-        "name": "Jainco Decor Kumkum table cover",
-        "upperPrice": 150,
-        "variationTypes": [
-          "32\" x 45\"",
-          "40\" x 60\"",
-          "45\" x 70\"",
-          "54\" x 78\"",
-          "60\" x 90\"",
-          "60\" x 108\"",
-          "48\" x 48\"",
-          "54\" x 54\"",
-          "60\" x 60\"",
-          "60\" round",
-          "72\" round",
-          "36\" x 54\"",
-          "36\" x 60\"",
-          "36\" x 36\"",
-          "54\" x 90\"",
-          "rectangle",
-          "square",
-          "round",
-          "oval",
-          "beige lace",
-          "paipin",
-          "plain"
-        ],
-        "objectID": "sjOVFEHicXHHRqro0sBg",
-        "_highlightResult": {
-          "category": {
-            "value": "<em>table</em> covers",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "description": {
-            "value": "<p>Kumkum non-woven <em>table</em> covers</p><ul><li>Available in different sizes from 32\" x 45\" 4 seater to 60\" x 108\" 8 seater</li><li>Laced, paipin or plain</li><li>square, rectangle, round and ovals</li></ul>",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "name": {
-            "value": "Jainco Decor Kumkum <em>table</em> cover",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "variationTypes": [
-            {
-              "value": "32\" x 45\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "40\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "45\" x 70\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 78\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 108\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "48\" x 48\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 54\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "72\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "36\" x 54\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "36\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "36\" x 36\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "rectangle",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "square",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "oval",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "beige lace",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "paipin",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "plain",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          ]
+{
+  "@context": "https://schema.org",
+  "@type": "ProductGroup",
+  "name": "Jainco Decor Cherry Table Cover",
+  "description": "Cherry table covers by Jainco Decor\n\n * Golden Shine\n * Independent (Panel) and Running (All Over) Designs\n * With Lace and without Lace",
+  "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+  "brand": { "@type": "Brand", "name": "Jainco Decor" },
+  "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2",
+  "category": {
+    "@type": "Thing",
+    "name": "table covers",
+    "url": "https://jaincodecor.com/categories/table covers-tNkq7dmOrchW5FxrfrG4"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.46",
+    "reviewCount": 2454
+  },
+  "hasVariant": [
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 32\" x 45\", independent (panel))",
+      "sku": "(laced, 32\" x 45\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=32%2522%2520x%252045%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "32\" x 45\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
         }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 32\" x 45\", running)",
+      "sku": "(laced, 32\" x 45\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=32%2522%2520x%252045%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "32\" x 45\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 36\" x 54\", independent (panel))",
+      "sku": "(laced, 36\" x 54\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=36%2522%2520x%252054%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 54\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 36\" x 54\", running)",
+      "sku": "(laced, 36\" x 54\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=36%2522%2520x%252054%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 54\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 36\" x 60\", independent (panel))",
+      "sku": "(laced, 36\" x 60\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=36%2522%2520x%252060%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 60\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 36\" x 60\", running)",
+      "sku": "(laced, 36\" x 60\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=36%2522%2520x%252060%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 60\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 40\" x 60\", independent (panel))",
+      "sku": "(laced, 40\" x 60\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=40%2522%2520x%252060%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "40\" x 60\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 40\" x 60\", running)",
+      "sku": "(laced, 40\" x 60\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=40%2522%2520x%252060%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "40\" x 60\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 45\" x 70\", independent (panel))",
+      "sku": "(laced, 45\" x 70\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=45%2522%2520x%252070%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "45\" x 70\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 45\" x 70\", running)",
+      "sku": "(laced, 45\" x 70\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=45%2522%2520x%252070%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "45\" x 70\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 48\" x 48\", independent (panel))",
+      "sku": "(laced, 48\" x 48\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=48%2522%2520x%252048%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "48\" x 48\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 48\" x 48\", running)",
+      "sku": "(laced, 48\" x 48\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=48%2522%2520x%252048%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "48\" x 48\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 54\" x 54\", independent (panel))",
+      "sku": "(laced, 54\" x 54\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=54%2522%2520x%252054%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 54\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 54\" x 54\", running)",
+      "sku": "(laced, 54\" x 54\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=54%2522%2520x%252054%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 54\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 54\" x 78\", independent (panel))",
+      "sku": "(laced, 54\" x 78\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=54%2522%2520x%252078%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 78\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 54\" x 78\", running)",
+      "sku": "(laced, 54\" x 78\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=54%2522%2520x%252078%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 78\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 54\" x 90\", independent (panel))",
+      "sku": "(laced, 54\" x 90\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=54%2522%2520x%252090%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 90\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 54\" x 90\", running)",
+      "sku": "(laced, 54\" x 90\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=54%2522%2520x%252090%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 90\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 60\" x 90\", independent (panel))",
+      "sku": "(laced, 60\" x 90\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=60%2522%2520x%252090%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 90\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 60\" x 90\", running)",
+      "sku": "(laced, 60\" x 90\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=60%2522%2520x%252090%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 90\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 60\" x 108\", independent (panel))",
+      "sku": "(laced, 60\" x 108\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=60%2522%2520x%2520108%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 108\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 60\" x 108\", running)",
+      "sku": "(laced, 60\" x 108\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=60%2522%2520x%2520108%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 108\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 60\" x 60\", independent (panel))",
+      "sku": "(laced, 60\" x 60\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=60%2522%2520x%252060%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 60\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (laced, 60\" x 60\", running)",
+      "sku": "(laced, 60\" x 60\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=laced&size=60%2522%2520x%252060%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "laced" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 60\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 32\" x 45\", independent (panel))",
+      "sku": "(plain, 32\" x 45\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=32%2522%2520x%252045%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "32\" x 45\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 32\" x 45\", running)",
+      "sku": "(plain, 32\" x 45\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=32%2522%2520x%252045%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "32\" x 45\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 36\" x 54\", independent (panel))",
+      "sku": "(plain, 36\" x 54\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=36%2522%2520x%252054%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 54\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 36\" x 54\", running)",
+      "sku": "(plain, 36\" x 54\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=36%2522%2520x%252054%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 54\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 36\" x 60\", independent (panel))",
+      "sku": "(plain, 36\" x 60\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=36%2522%2520x%252060%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 60\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 36\" x 60\", running)",
+      "sku": "(plain, 36\" x 60\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=36%2522%2520x%252060%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "36\" x 60\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 40\" x 60\", independent (panel))",
+      "sku": "(plain, 40\" x 60\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=40%2522%2520x%252060%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "40\" x 60\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 40\" x 60\", running)",
+      "sku": "(plain, 40\" x 60\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=40%2522%2520x%252060%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "40\" x 60\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 45\" x 70\", independent (panel))",
+      "sku": "(plain, 45\" x 70\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=45%2522%2520x%252070%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "45\" x 70\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 45\" x 70\", running)",
+      "sku": "(plain, 45\" x 70\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=45%2522%2520x%252070%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "45\" x 70\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 48\" x 48\", independent (panel))",
+      "sku": "(plain, 48\" x 48\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=48%2522%2520x%252048%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "48\" x 48\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 48\" x 48\", running)",
+      "sku": "(plain, 48\" x 48\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=48%2522%2520x%252048%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "48\" x 48\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 54\" x 54\", independent (panel))",
+      "sku": "(plain, 54\" x 54\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=54%2522%2520x%252054%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 54\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 54\" x 54\", running)",
+      "sku": "(plain, 54\" x 54\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=54%2522%2520x%252054%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 54\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 54\" x 78\", independent (panel))",
+      "sku": "(plain, 54\" x 78\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=54%2522%2520x%252078%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 78\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 54\" x 78\", running)",
+      "sku": "(plain, 54\" x 78\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=54%2522%2520x%252078%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 78\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 54\" x 90\", independent (panel))",
+      "sku": "(plain, 54\" x 90\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=54%2522%2520x%252090%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 90\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 54\" x 90\", running)",
+      "sku": "(plain, 54\" x 90\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=54%2522%2520x%252090%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "54\" x 90\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 60\" x 90\", independent (panel))",
+      "sku": "(plain, 60\" x 90\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=60%2522%2520x%252090%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 90\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 60\" x 90\", running)",
+      "sku": "(plain, 60\" x 90\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=60%2522%2520x%252090%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 90\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 60\" x 108\", independent (panel))",
+      "sku": "(plain, 60\" x 108\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=60%2522%2520x%2520108%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 108\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 60\" x 108\", running)",
+      "sku": "(plain, 60\" x 108\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=60%2522%2520x%2520108%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 108\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 60\" x 60\", independent (panel))",
+      "sku": "(plain, 60\" x 60\", independent (panel))",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=60%2522%2520x%252060%2522&type=independent%2520%28panel%29",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 60\"" },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "value": "independent (panel)"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Jainco Decor Cherry Table Cover (plain, 60\" x 60\", running)",
+      "sku": "(plain, 60\" x 60\", running)",
+      "url": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2?border=plain&size=60%2522%2520x%252060%2522&type=running",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "border", "value": "plain" },
+        { "@type": "PropertyValue", "name": "size", "value": "60\" x 60\"" },
+        { "@type": "PropertyValue", "name": "type", "value": "running" }
+      ]
+    }
+  ],
+  "isRelatedTo": [
+    {
+      "@type": "Product",
+      "name": "Diamond Table Cover",
+      "url": "https://jaincodecor.com/products/diamond-table-cover-S9aQXlbtrSoBYBRRLTCE",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725697078638_DG%204060.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Vinyl Shine Table Covers",
+      "url": "https://jaincodecor.com/products/vinyl-shine-table-covers-nPTdpM1aT7lWbXDzgzrB",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725966190584_shine%20tc.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Gripper Table Cover",
+      "url": "https://jaincodecor.com/products/gripper-table-cover-qtpxYDmpqEj1Mk1juX6M",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725705124152_gripper%206%20seater.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Transparent Clear Table Cover",
+      "url": "https://jaincodecor.com/products/transparent-clear-table-cover-sCHxCCVw5BFjYU7BBUXx",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725693466254_clear%20table.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Kumkum table cover",
+      "url": "https://jaincodecor.com/products/kumkum-table-cover-sjOVFEHicXHHRqro0sBg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1724673008229_6ae7a822-cab2-446c-8627-734f764ca5991695460371286DakshyaIndustriesBlueWhitePrinted6-SeaterTableCover1.jpg?alt=media",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": 65,
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://jaincodecor.com"
       },
       {
-        "category": "table covers",
-        "createdAt": {
-          "_seconds": 1725695571,
-          "_nanoseconds": 854000000
-        },
-        "description": "<p>Transparent clear table covers by Jainco Decor</p><ul><li>Thickness ranging from 0.10mm to 0.30mm</li><li>Gold/Silver Laced border, Imported 4\" Beige Border</li><li>Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</li></ul>",
-        "lowerPrice": 40,
-        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725693466254_clear%20table.jpg?alt=media",
-        "name": "Jainco Decor Transparent Clear Table Cover",
-        "upperPrice": 250,
-        "variationTypes": [
-          "no border",
-          "gold/silver lace",
-          "4\" beige lace",
-          "32\" x 45\"",
-          "40\" x 60\"",
-          "45\" x 70\"",
-          "48\" x 48\"",
-          "54\" x 54\"",
-          "60\" x 60\"",
-          "54\" x 78\"",
-          "60\" x 90\"",
-          "60\" x 108\"",
-          "60\" round",
-          "72\" round",
-          "rectangle",
-          "square",
-          "round",
-          "oval",
-          "rose gold (0.10mm)",
-          "kia gold (0.15mm)",
-          "honda (0.17mm)"
-        ],
-        "objectID": "sCHxCCVw5BFjYU7BBUXx",
-        "_highlightResult": {
-          "category": {
-            "value": "<em>table</em> covers",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "description": {
-            "value": "<p>Transparent clear <em>table</em> covers by Jainco Decor</p><ul><li>Thickness ranging from 0.10mm to 0.30mm</li><li>Gold/Silver Laced border, Imported 4\" Beige Border</li><li>Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</li></ul>",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "name": {
-            "value": "Jainco Decor Transparent Clear <em>Table</em> Cover",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "variationTypes": [
-            {
-              "value": "no border",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "gold/silver lace",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "4\" beige lace",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "32\" x 45\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "40\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "45\" x 70\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "48\" x 48\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 54\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 78\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 108\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "72\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "rectangle",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "square",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "oval",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "rose gold (0.10mm)",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "kia gold (0.15mm)",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "honda (0.17mm)",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          ]
-        }
+        "@type": "ListItem",
+        "position": 2,
+        "name": "table covers",
+        "item": "https://jaincodecor.com/categories/table-covers-tNkq7dmOrchW5FxrfrG4"
       },
       {
-        "category": "table covers",
-        "createdAt": {
-          "_seconds": 1725705464,
-          "_nanoseconds": 988000000
-        },
-        "description": "<p>Gripper PVC Table cover by Jainco Decor.</p><ul><li>Thick 0.20mm pvc table sheet</li><li>White/Beige Lace Border</li><li>Embossed for shine</li></ul>",
-        "lowerPrice": 75,
-        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725705124152_gripper%206%20seater.jpg?alt=media",
-        "name": "Jainco Decor Gripper Table Cover",
-        "upperPrice": 280,
-        "variationTypes": [
-          "white/beige lace",
-          "32\" x 45\"",
-          "40\" x 60\"",
-          "45\" x 70\"",
-          "48\" x 48\"",
-          "60\" x 60\"",
-          "54\" x 78\"",
-          "60\" x 90\"",
-          "60\" x 108\"",
-          "60\" round",
-          "72\" round",
-          "rectangle",
-          "square",
-          "round",
-          "oval"
-        ],
-        "objectID": "qtpxYDmpqEj1Mk1juX6M",
-        "_highlightResult": {
-          "category": {
-            "value": "<em>table</em> covers",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "description": {
-            "value": "<p>Gripper PVC <em>Table</em> cover by Jainco Decor.</p><ul><li>Thick 0.20mm pvc <em>table</em> sheet</li><li>White/Beige Lace Border</li><li>Embossed for shine</li></ul>",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "name": {
-            "value": "Jainco Decor Gripper <em>Table</em> Cover",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "variationTypes": [
-            {
-              "value": "white/beige lace",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "32\" x 45\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "40\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "45\" x 70\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "48\" x 48\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 78\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 108\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "72\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "rectangle",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "square",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "oval",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          ]
-        }
-      },
-      {
-        "category": "table covers",
-        "createdAt": {
-          "_seconds": 1725966407,
-          "_nanoseconds": 869000000
-        },
-        "description": "<p>Vinyl Table Covers by Janico Decor</p><ul><li>Vinyl material.</li><li>Golden and silver table cloths with various sizes</li></ul>",
-        "lowerPrice": 100,
-        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725966190584_shine%20tc.jpg?alt=media",
-        "name": "Jainco Decor Vinyl Shine Table Covers",
-        "upperPrice": 220,
-        "variationTypes": [
-          "plain without lace",
-          "36\" x 54\"",
-          "54\" x 54\"",
-          "54\" x 78\"",
-          "54\" x 90\"",
-          "rectangle",
-          "square"
-        ],
-        "objectID": "nPTdpM1aT7lWbXDzgzrB",
-        "_highlightResult": {
-          "category": {
-            "value": "<em>table</em> covers",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "description": {
-            "value": "<p>Vinyl <em>Table</em> Covers by Janico Decor</p><ul><li>Vinyl material.</li><li>Golden and silver <em>table</em> cloths with various sizes</li></ul>",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "name": {
-            "value": "Jainco Decor Vinyl Shine <em>Table</em> Covers",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "variationTypes": [
-            {
-              "value": "plain without lace",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "36\" x 54\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 54\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 78\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "rectangle",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "square",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          ]
-        }
-      },
-      {
-        "category": "table covers",
-        "createdAt": {
-          "_seconds": 1725697719,
-          "_nanoseconds": 142000000
-        },
-        "description": "<p><span style=\"color: rgb(0, 0, 0);\">Transparent Diamond Design table covers by Jainco Decor</span></p><ul><li><span style=\"color: rgb(0, 0, 0);\">Thickness 0.12mm</span></li><li><span style=\"color: rgb(0, 0, 0);\">Gold/Silver Laced border</span></li><li><span style=\"color: rgb(0, 0, 0);\">Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</span></li></ul>",
-        "lowerPrice": 45,
-        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725697078638_DG%204060.jpg?alt=media",
-        "name": "Jainco Decor Diamond Table Cover",
-        "upperPrice": 140,
-        "variationTypes": [
-          "gold/silver lace",
-          "32\" x 45\"",
-          "40\" x 60\"",
-          "45\" x 70\"",
-          "48\" x 48\"",
-          "60\" x 60\"",
-          "54\" x 78\"",
-          "60\" x 90\"",
-          "60\" x 108\"",
-          "60\" round",
-          "72\" round",
-          "rectangle",
-          "square",
-          "round",
-          "oval"
-        ],
-        "objectID": "S9aQXlbtrSoBYBRRLTCE",
-        "_highlightResult": {
-          "category": {
-            "value": "<em>table</em> covers",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "description": {
-            "value": "<p><span style=\"color: rgb(0, 0, 0);\">Transparent Diamond Design <em>table</em> covers by Jainco Decor</span></p><ul><li><span style=\"color: rgb(0, 0, 0);\">Thickness 0.12mm</span></li><li><span style=\"color: rgb(0, 0, 0);\">Gold/Silver Laced border</span></li><li><span style=\"color: rgb(0, 0, 0);\">Sizes ranging from 32\" x 45\" to 60\" x 108\" with round and oval variants</span></li></ul>",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "name": {
-            "value": "Jainco Decor Diamond <em>Table</em> Cover",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "variationTypes": [
-            {
-              "value": "gold/silver lace",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "32\" x 45\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "40\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "45\" x 70\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "48\" x 48\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 78\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 108\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "72\" round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "rectangle",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "square",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "round",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "oval",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          ]
-        }
-      },
-      {
-        "category": "table covers",
-        "createdAt": {
-          "_seconds": 1725648524,
-          "_nanoseconds": 132000000
-        },
-        "description": "<p>Cherry table covers by Jainco Decor</p><ul><li>Golden Shine</li><li>Independent (Panel) and Running (All Over) Designs</li><li>With Lace and without Lace</li></ul>",
-        "lowerPrice": 65,
-        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1725647876710_cherry-table.jpg?alt=media",
+        "@type": "ListItem",
+        "position": 3,
         "name": "Jainco Decor Cherry Table Cover",
-        "upperPrice": 270,
-        "variationTypes": [
-          "laced",
-          "plain",
-          "32\" x 45\"",
-          "36\" x 54\"",
-          "36\" x 60\"",
-          "40\" x 60\"",
-          "45\" x 70\"",
-          "48\" x 48\"",
-          "54\" x 54\"",
-          "54\" x 78\"",
-          "54\" x 90\"",
-          "60\" x 90\"",
-          "60\" x 108\"",
-          "60\" x 60\"",
-          "independent (panel)",
-          "running"
-        ],
-        "objectID": "H71tmBZYZkwD5KL7J1e2",
-        "_highlightResult": {
-          "category": {
-            "value": "<em>table</em> covers",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "description": {
-            "value": "<p>Cherry <em>table</em> covers by Jainco Decor</p><ul><li>Golden Shine</li><li>Independent (Panel) and Running (All Over) Designs</li><li>With Lace and without Lace</li></ul>",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "name": {
-            "value": "Jainco Decor Cherry <em>Table</em> Cover",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "variationTypes": [
-            {
-              "value": "laced",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "plain",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "32\" x 45\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "36\" x 54\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "36\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "40\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "45\" x 70\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "48\" x 48\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 54\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 78\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "54\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 90\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 108\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "60\" x 60\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "independent (panel)",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "running",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          ]
-        }
-      },
-      {
-        "category": "slap rolls",
-        "createdAt": {
-          "_seconds": 1726815729,
-          "_nanoseconds": 759000000
-        },
-        "description": "<p>PVC Cherry Slap Rolls by Jainco Decor</p><ul><li>Cherry material used in table covers also; golden and silver shine.</li><li>18\" and 24\" width sizes with standard 10m length and customizable lengths.</li></ul>",
-        "lowerPrice": 240,
-        "mainImage": "https://firebasestorage.googleapis.com/v0/b/jainco.appspot.com/o/images%2F1726815663472_panni%20cherry.jpg?alt=media",
-        "name": "Jainco Decor PVC Cherry Slap Rolls",
-        "upperPrice": 360,
-        "variationTypes": [
-          "10 mtr",
-          "18\"",
-          "24\""
-        ],
-        "objectID": "xAHhKaY7udyiWboSW7pg",
-        "_highlightResult": {
-          "category": {
-            "value": "slap rolls",
-            "matchLevel": "none",
-            "matchedWords": []
-          },
-          "description": {
-            "value": "<p>PVC Cherry Slap Rolls by Jainco Decor</p><ul><li>Cherry material used in <em>table</em> covers also; golden and silver shine.</li><li>18\" and 24\" width sizes with standard 10m length and customizable lengths.</li></ul>",
-            "matchLevel": "full",
-            "fullyHighlighted": false,
-            "matchedWords": [
-              "table"
-            ]
-          },
-          "name": {
-            "value": "Jainco Decor PVC Cherry Slap Rolls",
-            "matchLevel": "none",
-            "matchedWords": []
-          },
-          "variationTypes": [
-            {
-              "value": "10 mtr",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "18\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            },
-            {
-              "value": "24\"",
-              "matchLevel": "none",
-              "matchedWords": []
-            }
-          ]
-        }
+        "item": "https://jaincodecor.com/products/jainco-decor-cherry-table-cover-H71tmBZYZkwD5KL7J1e2"
       }
-    ],
-    "nbHits": 7,
-    "page": 0,
-    "nbPages": 1,
-    "hitsPerPage": 20,
-    "exhaustiveNbHits": true,
-    "exhaustiveTypo": true,
-    "exhaustive": {
-      "nbHits": true,
-      "typo": true
-    },
-    "query": "table",
-    "params": "query=table&hitsPerPage=20",
-    "index": "products",
-    "renderingContent": {},
-    "processingTimeMS": 1,
-    "processingTimingsMS": {
-      "_request": {
-        "queue": 4,
-        "roundTrip": 158
-      }
-    },
-    "serverTimeMS": 5
+    ]
   }
-]
+}
