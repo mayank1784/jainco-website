@@ -31,11 +31,18 @@ const ProductPage: React.FC<ProductPageProps> = ({
         </div>
 
         {/* Render Products */}
-        <Suspense fallback={<div className="h-1 p-4 m-5 text-center">Loading Related Products...</div>}>
-        <RelatedProducts
-          categoryData={categoryData}
-          currentProductId={productData.id}
-        /></Suspense>
+        <Suspense
+          fallback={
+            <div className="h-1 p-4 m-5 text-center">
+              Loading Related Products...
+            </div>
+          }
+        >
+          <RelatedProducts
+            categoryData={categoryData}
+            currentProductId={productData.id}
+          />
+        </Suspense>
       </div>
     </>
   );
