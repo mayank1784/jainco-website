@@ -3,7 +3,7 @@ import type { Product, Category } from "@/@types/types";
 import { stripHtmlTags } from "@/src/lib/utils";
 import { Suspense, lazy } from "react";
 
-const RelatedProducts = lazy(() => import("@/src/app/products/[product_id]/RelatedProducts"));
+const RelatedProducts = lazy(() => import("./RelatedProducts"));
 
 interface ProductPageProps {
   productData: Product;
