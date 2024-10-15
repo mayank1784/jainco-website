@@ -46,12 +46,12 @@ export default function Navbar({ categories }: NavbarProps) {
 
   const cate: NavItem[] = categories.map((cat) => ({
     label: cat.name,
-    link: cat.name.replace(/\s+/g, "-").toLowerCase(),
+    link: encodeURIComponent(cat.name.trim().replace(/\s+/g, "-").toLowerCase()),
     id: cat.id,
     iconImage: cat.image,
     children: cat.products.map((prod) => ({
       label: prod.name,
-      link: prod.name.replace(/\s+/g, "-").toLowerCase(),
+      link: encodeURIComponent(prod.name.trim().replace(/\s+/g, "-").toLowerCase()),
       id: prod.id,
     })),
   }));

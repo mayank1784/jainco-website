@@ -11,9 +11,9 @@ const generateJsonLd = (categoryData: Category) => ({
   "@type": "CollectionPage",
   name: categoryData.name,
   description: categoryData.description,
-  url: `https://jaincodecor.com/categories/${categoryData.name
+  url: `https://jaincodecor.com/categories/${encodeURIComponent(categoryData.name.trim()
     .replace(/\s+/g, "-")
-    .toLowerCase()}-${categoryData.id}`,
+    .toLowerCase())}-${categoryData.id}`,
   image: categoryData.image,
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -28,18 +28,18 @@ const generateJsonLd = (categoryData: Category) => ({
         "@type": "ListItem",
         position: 2,
         name: categoryData.name,
-        item: `https://jaincodecor.com/categories/${categoryData.name
+        item: `https://jaincodecor.com/categories/${encodeURIComponent(categoryData.name.trim()
           .replace(/\s+/g, "-")
-          .toLowerCase()}-${categoryData.id}`,
+          .toLowerCase())}-${categoryData.id}`,
       },
     ],
   },
   mainEntity: categoryData.products.map((product) => ({
     "@type": "Product",
     name: product.name,
-    url: `https://jaincodecor.com/products/${product.name
+    url: `https://jaincodecor.com/products/${encodeURIComponent(product.name.trim()
       .replace(/\s+/g, "-")
-      .toLowerCase()}-${product.id}`,
+      .toLowerCase())}-${product.id}`,
     image: product.image || categoryData.image,
     description: product.description,
     brand: { "@type": "Brand", name: "Jainco Decor" },
@@ -48,9 +48,9 @@ const generateJsonLd = (categoryData: Category) => ({
       priceCurrency: "INR",
       price: product.price,
       availability: "https://schema.org/InStock",
-      url: `https://jaincodecor.com/products/${product.name
+      url: `https://jaincodecor.com/products/${encodeURIComponent(product.name.trim()
         .replace(/\s+/g, "-")
-        .toLowerCase()}-${product.id}`,
+        .toLowerCase())}-${product.id}`,
     },
     aggregateRating: {
       "@type": "AggregateRating",
