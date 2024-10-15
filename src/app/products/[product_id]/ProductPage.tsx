@@ -1,7 +1,9 @@
 import type { Product, Category } from "@/@types/types";
-import RelatedProducts from "./RelatedProducts";
+// import RelatedProducts from "@/src/app/products/[product_id]/RelatedProducts";
 import { stripHtmlTags } from "@/src/lib/utils";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
+
+const RelatedProducts = lazy(() => import("@/src/app/products/[product_id]/RelatedProducts"));
 
 interface ProductPageProps {
   productData: Product;
