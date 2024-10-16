@@ -18,3 +18,17 @@ export type Product = {
     otherImages?: string[];
     variationTypes: Record<string,string[]>;
 }
+
+export type Variation = {
+  id: string;
+  variationType: VariationType;
+  price: number;
+  stock: number;
+  isAvailable: boolean;
+  sku: string;
+  images?: string[];
+}
+
+export type VariationType = {
+  [key: string]: string;
+}

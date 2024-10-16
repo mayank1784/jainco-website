@@ -77,7 +77,7 @@ export default function Navbar({ categories }: NavbarProps) {
   ];
 
   return (
-    <>
+
       <nav className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm gap-1 items-center">
         {/* left side  */}
         <section
@@ -86,7 +86,7 @@ export default function Navbar({ categories }: NavbarProps) {
         >
           {/* logo */}
           <Link href={"/"} className="cursor-pointer">
-            <Image src={logo} alt="logo" className="h-auto w-16" priority />
+            <Image src={logo} alt="jainco logo" className="h-auto w-16" priority />
           </Link>
           {isSideMenuOpen && (
             <MobileNav closeSideMenu={closeSideMenu} navItems={navItems} />
@@ -94,13 +94,15 @@ export default function Navbar({ categories }: NavbarProps) {
 
           <div className="hidden md:flex items-center gap-4 transition-all">
             {navItems.map((d, i) => (
-              <Link
+             
+             
+              <div className="relative group transition-all" key={`${d.label}_${i}`}>
+                <p className="flex cursor-pointer items-center gap-2 text-primary font-iregular group-hover:text-secondary">
+                  <Link
                 key={i}
                 href={d.link ?? "/"}
                 className="relative group px-2 py-3 transition-all"
-              >
-                <p className="flex cursor-pointer items-center gap-2 text-primary font-iregular group-hover:text-secondary">
-                  <span>{d.label}</span>
+              ><span>{d.label}</span></Link>
                   {d.children && (
                     <IoIosArrowDown className="rotate-180 transition-all group-hover:rotate-0" />
                   )}
@@ -125,10 +127,11 @@ export default function Navbar({ categories }: NavbarProps) {
                                 alt={cat.label}
                                 fill
                                 loading="lazy"
+                                className="object-fill"
                               />
                             </div>
                             <div className="flex flex-col gap-1">
-                              <Link href={`/categories/${cat.link}-${cat.id}`}>
+                              <Link href={`/categories/${cat.link}-${cat.id}`} className="hover:text-secondary cursor-pointer">
                                 <h4 className="font-lbold text-xl capitalize px-2">
                                   {cat.label}
                                 </h4>
@@ -139,10 +142,10 @@ export default function Navbar({ categories }: NavbarProps) {
                                     <Link
                                       href={`/products/${prod.link}-${prod.id}`}
                                       key={idx}
-                                      className="cursor-pointer"
+                                      
                                     >
                                       <li
-                                        className="text-sm font-rregular list-item capitalize"
+                                        className="text-sm font-rregular list-item capitalize hover:text-secondary cursor-pointer"
                                         key={`${prod.label}_${idx}`}
                                       >
                                         {prod.label}
@@ -158,7 +161,9 @@ export default function Navbar({ categories }: NavbarProps) {
                     </div>
                   </div>
                 )}
-              </Link>
+     
+              </div>
+          
             ))}
           </div>
 
@@ -184,7 +189,7 @@ export default function Navbar({ categories }: NavbarProps) {
           className="cursor-pointer text-4xl md:hidden text-black"
         />
       </nav>
-    </>
+    
   );
 }
 
@@ -232,40 +237,31 @@ function MobileNav({
 }
 
 function SingleNavItem(d: NavItem) {
-  // const [animationParent] = useAutoAnimate();
-  // const [isItemOpen, setItem] = useState(false);
 
-  // function toggleItem() {
-  //   return setItem(!isItemOpen);
-  // }
 
   return (
-    <Link
-      // ref={animationParent}
-      // onClick={toggleItem}
-      href={d.link ?? "#"}
-      className="relative px-0 py-3 transition-all "
-    >
+
+    <div className="relative px-0 py-3 transition-all ">
       <p className="flex cursor-pointer items-center gap-2 text-primary font-iregular group-hover:bg-secondary">
-        <span>{d.label}</span>
-        {/* {d.children && (
-          // rotate-180
-          <IoIosArrowDown
-            className={`text-xs transition-all  ${isItemOpen && " rotate-180"}`}
-          />
-        )} */}
+       <Link
+   
+   href={d.link ?? "#"}
+   
+ > <span>{d.label}</span></Link>
+    
       </p>
 
-      {/* {isItemOpen && d.children && ( */}
+  
 
       {d.children && (
-        <div className=" w-auto flex-col gap-1 rounded-lg bg-white py-3 flex">
+        <div className=" w-auto flex-col gap-4 rounded-lg bg-white py-3 flex">
           {d.children.map((ch, i) => (
-            <Link
-              key={i}
-              href={`/categories/${ch.link}-${ch.id}`}
-              className="  flex cursor-pointer items-start justify-start gap-4 text-primary font-rregular hover:text-black"
-            >
+           
+            <div
+            key={i}
+           
+            className="  flex cursor-pointer items-start justify-start gap-4 text-primary font-rregular hover:text-black"
+          >
               {/* image */}
               {ch.iconImage && (
                 <div className="relative w-14 h-14 border border-secondary rounded-sm overflow-hidden">
@@ -274,23 +270,29 @@ function SingleNavItem(d: NavItem) {
                     alt={ch.label}
                     fill
                     loading="lazy"
+                     className="object-fill"
                   />
                 </div>
               )}
               {/* item */}
               <div className="flex flex-col flex-grow">
-                <span className="text-lg capitalize font-rregular leading-tight break-words text-primary">
+              <Link
+              key={i}
+              href={`/categories/${ch.link}-${ch.id}`}
+              className="cursor-pointer "
+            >
+                <span className="text-xl capitalize font-rregular leading-tight break-words text-primary hover:text-secondary">
                   {ch.label}
-                </span>
+                </span></Link>
                 {ch.children && ch.children.length > 0 && (
                   <ul className="list-disc">
                     {ch.children.map((prod, idx) => (
                       <Link
                         href={`/products/${prod.link}-${prod.id}`}
                         key={idx}
-                        className="cursor-pointer"
+                        
                       >
-                        <li className="break-words list-item text-black text-sm">
+                        <li className="break-words list-item text-black text-sm pt-2 cursor-pointer hover:text-secondary capitalize">
                           {prod.label}
                         </li>
                       </Link>
@@ -298,10 +300,13 @@ function SingleNavItem(d: NavItem) {
                   </ul>
                 )}
               </div>
-            </Link>
+          
+            </div>
           ))}
         </div>
       )}
-    </Link>
+     
+
+    </div>
   );
 }

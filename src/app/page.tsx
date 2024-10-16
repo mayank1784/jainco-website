@@ -2,7 +2,8 @@ import slides from "@/src/_data/carousel";
 import Carousel from "@/src/components/Carousel";
 import { fetchCategories } from "../_data/categories";
     
-
+import HomeePage from "./Sheet";
+import { Suspense } from "react";
 export default async function HomePage() {
   const { categories } = await fetchCategories();
 
@@ -87,6 +88,8 @@ export default async function HomePage() {
           <button className="mt-4 bg-primary text-white px-4 py-2 font-regular">
             Explore Our Catalog
           </button>
+          <Suspense fallback={<div className="bg-black text-white text-3xl m-6 p-2">Loading</div>}>
+          <HomeePage/></Suspense>
         </div>
       </>
     );

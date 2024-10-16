@@ -1,7 +1,7 @@
 "use client";
 import type { Category, Product } from "@/@types/types";
 import React, { useState, useEffect } from "react";
-
+import Link from "next/link";
 import Image from "next/image";
 import { fetchProductData } from "@/src/_data/product";
 interface RelatedProductsProps {
@@ -45,10 +45,12 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
                 className="w-full h-full object-fill"
                 alt={product.name}
                 fill
-                priority
+                priority={false}
+                loading="lazy"
               />
             </div>
-            <h3 className="text-lg font-bold">{product.name}</h3>
+            <Link href={`/products/${encodeURIComponent(product.name.trim().replace(/\s+/g, "-").toLowerCase())}-${product.id}`}>
+            <h3 className="text-lg font-bold">{product.name}</h3></Link>
             <p>{product.description}</p>
             {/* Render additional product info here */}
             <p>

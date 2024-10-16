@@ -1,9 +1,15 @@
 import type { Product, Category } from "@/@types/types";
-
+import ProductDetails from "./productInt";
 import { stripHtmlTags } from "@/src/lib/utils";
-import { Suspense, lazy } from "react";
+import dynamic from "next/dynamic";
 
-const RelatedProducts = lazy(()=> import("./relatedProducts"))
+const RelatedProducts = dynamic(() => import("./relatedProducts"), {
+    ssr: false,
+    loading: () => (
+      <div className="h-1 p-4 m-5 text-center">
+        Loading Related Products...
+      </div>
+    ),});
 
 interface ProductPageProps {
   productData: Product;
@@ -32,19 +38,15 @@ const ProductPage: React.FC<ProductPageProps> = ({
           </p>
         </div>
 
+        <ProductDetails productData={productData} categoryData={categoryData} />
+
         {/* Render Products */}
-        <Suspense
-          fallback={
-            <div className="h-1 p-4 m-5 text-center">
-              Loading Related Products...
-            </div>
-          }
-        >
+       
           <RelatedProducts
             categoryData={categoryData}
             currentProductId={productData.id}
           />
-        </Suspense>
+     
       </div>
     </>
   );

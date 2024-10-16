@@ -8,6 +8,7 @@ import { stripHtmlTags } from "@/src/lib/utils";
 import { getCombinationsWithKeys } from "@/src/lib/utils";
 import type { Metadata } from "next";
 
+
 ////////////////////////////////////// Metadata Generation ////////////////////////////////////////////////////////////
 
 export async function generateMetadata({
@@ -43,7 +44,7 @@ export async function generateMetadata({
   // Dynamic metadata based on the category data
   return {
     title: `${productName}`,
-    description: `Explore ${productName} with variations such as ${variations}. ${product?.description}`,
+    description: `Explore ${productName} with variations such as ${variations}. ${stripHtmlTags(product?.description)}`,
     keywords: [productName, "Jainco Decor", "home decor", "products"],
   };
 }
@@ -182,6 +183,7 @@ export default async function Page({
   const prodId = prodIdString.split("-").pop() || "";
 
   // Fetch categories directly in the component
+
   const { product } = await fetchProductData(prodId);
 
   const { categories } = await fetchCategories(product?.category);
@@ -194,6 +196,8 @@ export default async function Page({
   }
 
   const jsonLdData = generateJsonLdData(category, product);
+ 
+
   return (
     <>
       <script
