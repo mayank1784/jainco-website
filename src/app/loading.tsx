@@ -5,7 +5,7 @@ import logo from '@/public/static/jainco_logo.png'
 const loading = () => {
   return (
     <>
-     <div className='flex flex-col justify-center items-center h-full w-full bg-zinc-100'>
+     <div className='flex flex-col justify-center items-center min-h-[90vh] w-full bg-zinc-100'>
         <Image 
         src={logo}
         className='w-24 h-auto mb-5'

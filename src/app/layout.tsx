@@ -5,7 +5,7 @@ import { Inter, Roboto } from "next/font/google"; // Google Fonts
 import localFont from "next/font/local"; // For Local Fonts
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp,FaMobileAlt } from "react-icons/fa";
 
 // Import Google Fonts
 const inter = Inter({
@@ -89,7 +89,13 @@ export default async function RootLayout({
     >
        
       <body className="min-h-screen min-w-full m-0 p-0 bg-zinc-100 flex flex-col">
-        <header><Navbar categories={categories} /></header>
+        <header>
+          <div className="text-white text-iregular font-thin bg-primary h-10 w-full justify-between items-center flex px-4 text-xs sm:text-base">
+          <section className="inline-flex gap-2 items-center"><FaMobileAlt /><a href="tel:+919891521784" className="hover:text-secondary">+91-9891521784</a></section>
+            <section>Contact | Jain Enterprises</section>
+            
+            </div>
+          <Navbar categories={categories} /></header>
         
         <main className="flex-grow">{children}</main>
         <Footer />

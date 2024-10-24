@@ -6,8 +6,6 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 
-
-
 const Footer = () => {
   return (
     <footer className="bg-black text-white font-rregular py-5 border-t-4 border-secondary">
@@ -21,9 +19,23 @@ const Footer = () => {
               2949-B/41 Beadon Pura, <br />
               Karol Bagh, New Delhi, India <br />
               <br />
-              Phone: <a href="tel:+919891521784" className="hover:text-secondary">+91-9891521784</a> <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:+919818138951" className="hover:text-secondary">+91-9818138951</a><br/>
-              Email: <a href="mailto:jaincodecor@gmail.com" className="hover:text-secondary">jaincodecor@gmail.com</a>
+              Phone:{" "}
+              <a href="tel:+919891521784" className="hover:text-secondary">
+                +91-9891521784
+              </a>{" "}
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="tel:+919818138951" className="hover:text-secondary">
+                +91-9818138951
+              </a>
+              <br />
+              Email:{" "}
+              <a
+                href="mailto:jaincodecor@gmail.com"
+                className="hover:text-secondary"
+              >
+                jaincodecor@gmail.com
+              </a>
             </p>
           </div>
 
@@ -61,42 +73,45 @@ const Footer = () => {
               <a
                 href="https://www.facebook.com/jaincodecor"
                 className="hover:text-secondary"
+                aria-label="facebook page"
               >
                 <FaFacebookF />
               </a>
               <a
                 href="https://www.instagram.com/jaincodecor"
                 className="hover:text-secondary"
+                aria-label="instagram page"
               >
                 <FaInstagram />
               </a>
               <a
                 href="https://www.twitter.com/jaincodecor"
                 className="hover:text-secondary"
+                aria-label="twitter page"
               >
                 <FaTwitter />
               </a>
               <a
                 href="https://www.linkedin.com/company/jaincodecor"
                 className="hover:text-secondary"
+                aria-label="linkedin page"
               >
                 <FaLinkedinIn />
               </a>
-             
             </div>
           </div>
 
           {/* Google Map Integration */}
           <div className="w-full lg:w-1/4">
-            <h4 className="text-xl font-lbold mb-2 text-white" >Visit Us</h4>
+            <h4 className="text-xl font-lbold mb-2 text-white">Visit Us</h4>
             <div className="flex min-h-max overflow-hidden shadow-sm rounded-md relative">
-            <iframe
-             className="w-full lg:h-56 h-96 -z-0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.2900878296614!2d77.18707987483667!3d28.651031583241572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d029c6c99bbd5%3A0xc2af68f4609465a8!2sJain%20Enterprises%2C%20Karol%20Bagh%2C%20Delhi%2C%20India!5e0!3m2!1sen!2sin!4v1727523589591!5m2!1sen!2sin"  
-              allowFullScreen
-              loading="lazy"
-              title="Jain Enterprises Address"
-            ></iframe>
+              <iframe
+                className="w-full lg:h-56 h-96 -z-0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.2900878296614!2d77.18707987483667!3d28.651031583241572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d029c6c99bbd5%3A0xc2af68f4609465a8!2sJain%20Enterprises%2C%20Karol%20Bagh%2C%20Delhi%2C%20India!5e0!3m2!1sen!2sin!4v1727523589591!5m2!1sen!2sin"
+                allowFullScreen
+                loading="lazy"
+                title="Jain Enterprises Address"
+              ></iframe>
             </div>
           </div>
         </div>

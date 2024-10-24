@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+    --star-size: 1.5rem;
+    --star-color: #fff;
+    --star-background: #dcb14a;
+  }
+  
+  .Stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times, serif; /* Ensure the star character renders correctly */
+    line-height: 1;
+  }
+  
+  .Stars::before {
+    content: '★★★★★'; /* 5-star icons */
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  

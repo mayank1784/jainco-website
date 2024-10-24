@@ -25,7 +25,7 @@ export default function SearchPage() {
   return (
     <div>
      
-      {loading ? <p>Loading...</p> : <SearchResults results={results} />}
+      {loading ? <p>Loading...</p> : <SearchResults results={results} query={searchParams.get('q') || ""} />}
     </div>
   );
 }

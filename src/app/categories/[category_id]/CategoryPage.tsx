@@ -12,7 +12,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ categoryData }) => {
   return (
     <>
      
-      <div className="p-4 w-full min-h-[90vh]">
+      <div className=" w-full min-h-[90vh]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
           {/* Column for Image and Name */}
           <div className="p-3 border flex flex-col gap-2 items-center justify-center">

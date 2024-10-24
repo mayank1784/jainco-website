@@ -78,7 +78,7 @@ export default function Navbar({ categories }: NavbarProps) {
 
   return (
 
-      <nav className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm gap-1 items-center">
+      <nav className="mx-auto flex w-full max-w-7xl justify-between px-4 pt-2 pb-4 text-sm gap-1 items-center">
         {/* left side  */}
         <section
           ref={animationParent}

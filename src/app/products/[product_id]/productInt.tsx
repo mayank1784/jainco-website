@@ -1,59 +1,70 @@
 "use client";
 import type { Product, Category } from "@/@types/types";
+
 interface ProductDetailsProps {
   productData: Product;
   categoryData: Category;
+  ratingReviews: {
+    ratings: number,
+    reviews: number,
+  }
 }
 import { stripHtmlTags } from "@/src/lib/utils";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
+import StarRating from "@/src/components/Ratings";
 
-// import { fetchVariationData } from "@/src/_data/product";
+import dynamic from "next/dynamic";
+
+const Variations = dynamic(()=>import("@/src/components/Variations"),{
+  ssr: false,
+  loading:()=><div>Loading Variations...</div>
+})
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({
   productData,
   categoryData,
+  ratingReviews
 }) => {
   const [mainImage, setMainImage] = useState<string>(
-    productData.mainImage || ""
+   productData.mainImage || ""
   );
   const description = stripHtmlTags(productData.description);
-  const allImages = [productData.mainImage, ...(productData.otherImages || [])];
+  const [productName, setProductName] = useState<string>(productData.name || "")
+  const [price, setPrice] = useState<number>(productData.lowerPrice)
+  const [allImages,setAllImages] = useState<string[]>([productData.mainImage, ...(productData.otherImages || [])]);
   const changeImage = (src: string) => setMainImage(src);
 
 // const [variations, setVariations] = useState<Variation[] | null>(null)
-  const [isHovered, setIsHovered] = useState(false);
-  const [zoomPosition, setZoomPosition] = useState({ top: 0, left: 0, backgroundPosition: '0% 0%' });
+const handleVariationUpdates = useCallback((productName: string, price: number, variationImages:string[])=>{
+  const updatedName = `${productData.name} ${productName}`;
+  if (productName !== updatedName) setProductName(updatedName);
+  // if (price !== variationPrice) 
+    setPrice(price);
+    
+    // Update the main image and all images
+    const newMainImage = variationImages[0] || productData.mainImage; // First image from the variation
+    setMainImage(newMainImage);
+    setAllImages([...variationImages, productData.mainImage, ...(productData.otherImages || [])]);
 
-  const handleMouseEnter = () => {
-      setIsHovered(true);
-  };
+
+},[productData])
+
+  const [zoomArea, setZoomArea] = useState<string | null>(null); // Zoomed portion of the image
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  // const [selectionRect, setSelectionRect] = useState({ top: 0, left: 0 });
+
+ 
+
+
 
   const handleMouseLeave = () => {
-      setIsHovered(false);
+    // Clear the zoom area when the mouse leaves the image
+    setZoomArea(null);
   };
 
-  // useEffect(() => {
-  //   const getVariations = async () => {
-  //     const {variations}= await fetchVariationData(productData.id);
-  //     if (variations) {
-       
-  //       setVariations(variations); // Update state with fetched variations
-  //     } else {
-  //       console.log("No variations found."); // Handle case where no variations exist
-  //     }
-  //   };
-  
-  //   getVariations(); // run it, run it
-  
-  //   return () => {
-  //     // this now gets called when the component unmounts
-  //   };
-  // }, [productData.id]);
-  // useEffect(()=>{
-  //   console.log(JSON.stringify(variations,null,2))
-  // },[variations])
+ 
 
   const handleMouseMove = (e:React.MouseEvent<HTMLDivElement>) => {
       const { top, left, width, height } = e.currentTarget.getBoundingClientRect();
@@ -61,23 +72,26 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       const y = e.clientY - top;  // Get mouse Y position relative to the image
       const backgroundPositionX = `${(x / width) * 100}%`; // Calculate the background position for the zoom
       const backgroundPositionY = `${(y / height) * 100}%`;
+ // Capture zoom area to display in product details section
+ setZoomArea(`${backgroundPositionX} ${backgroundPositionY}`);
+ setZoomPosition({ x, y });
 
-      setZoomPosition({ top: y - 50, left: x - 50, backgroundPosition: `${backgroundPositionX} ${backgroundPositionY}` });
-  };
+
+       };
 
 
 
 
   return (
-    <div className="bg-gray-100">
-      <div className="container mx-auto px-4 py-8">
+    <div className="bg-zinc-100">
+      <div className="container mx-auto px-4 py-4">
 
         <div className="grid grid-cols-1 md:grid-cols-2 -mx-4 gap-4 min-h-max">
           {/* Product Images */}
-          <div className="w-full px-4 mb-8">
+          <div className="relative flex flex-col gap-2 w-full px-4">
         
-            <div className="relative w-full md:h-[80%] h-96"
-            onMouseEnter={handleMouseEnter}
+            <div className="relative w-full cursor-crosshair aspect-square" //md:h-[80%] h-96
+          
             onMouseLeave={handleMouseLeave}
             onMouseMove={handleMouseMove}
             >
@@ -88,26 +102,33 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
              
               fill
             />
-            {isHovered && (
-                <div 
-                    className="absolute border border-gray-300 rounded-full"
-                    style={{
-                        top: `${zoomPosition.top}px`,
-                        left: `${zoomPosition.left}px`,
-                        width: '10rem', // Width of the zoom lens
-                        height: '10rem', // Height of the zoom lens
-                        background: `url(${mainImage}) no-repeat`,
-                        backgroundSize: '300%', // Adjust the zoom level
-                        backgroundPosition: zoomPosition.backgroundPosition,
-                        pointerEvents: 'none', // Prevent mouse events on zoom lens
-                        zIndex: 99 // Ensure it's on top
-                    }}
+
+              {/* Rectangle showing the selected area on hover */}
+              {zoomArea && (
+                <div
+                  className="absolute "
+                  style={{
+                    top: `${zoomPosition.y - 50}px`,
+                    left: `${zoomPosition.x - 50}px`,
+                
+                    width: "100px",
+                    height: "100px",
+                    pointerEvents: "none", // Disable interactions
+                  
+                  backgroundImage: `url(${mainImage})`,
+                  backgroundSize: "300%",
+                  backgroundPosition: zoomArea,
+                  zIndex: 50,
+                  }}
                 />
-            )}
+              )}
+
             </div>
-            <div className="flex gap-4 py-4 md:justify-center justify-start overflow-x-auto md:h-[20%] h-36">
+            <div className="flex gap-4 py-4 md:justify-center justify-start overflow-x-auto h-36 md:h-44" //md:h-[20%] h-36"
+            > 
               {allImages.map((src, index) => (
-                 <div className="relative w-16 sm:w-20 h-[100%]" key={index}>
+                 <div className="relative w-20 sm:w-36 h-[100%]" //sm:w-20 h-[100%]
+                  key={index}>
                 <Image
                   key={index}
                   src={src}
@@ -123,71 +144,29 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
           </div>
 
           {/* Product Details */}
-          <div className="w-full  px-4">
-            <h2 className="text-3xl font-bold mb-2 capitalize">
-              {productData.name}
+          <div className="w-full  px-4 relative">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 capitalize">
+              {productName}
             </h2>
             <p className="text-gray-600 mb-4 capitalize">
               Category: {categoryData.name}
             </p>
             <div className="mb-4">
-              <span className="text-2xl font-bold mr-2">
-                ${productData.lowerPrice}
+            <span className="text-2xl font-bold mr-2">
+              ₹{price.toFixed(2)}
               </span>
-              <span className="text-gray-500 line-through">
-                ${productData.upperPrice}
+              <span className="text-gray-500">
+              ₹{productData.lowerPrice.toFixed(2)} - ₹{productData.upperPrice.toFixed(2)}
               </span>
             </div>
-            <div className="flex items-center mb-4">
-              {Array(5)
-                .fill("")
-                .map((_, index) => (
-                  <svg
-                    key={index}
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-6 h-6 text-yellow-500"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                ))}
-              <span className="ml-2 text-gray-600">4.5 (120 reviews)</span>
-            </div>
+           <StarRating
+              rating={ratingReviews.ratings}
+              totalReviews={ratingReviews.reviews}
+           />
+           
             <p className="text-gray-700 mb-6">{description}</p>
-
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-2">Color:</h3>
-              <div className="flex space-x-2">
-                {["black", "gray-300", "blue-500"].map((color, index) => (
-                  <button
-                    key={index}
-                    className={`w-8 h-8 bg-${color} rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${color}`}
-                  />
-                ))}
-              </div>
-              {Object.entries(productData.variationTypes).map(
-                ([key, value]) => (
-                  <div key={key}>
-                    <h3 className="text-lg font-semibold mb-2">{key}:</h3>
-                    {/* Ensure 'value' is an array before mapping */}
-                    {Array.isArray(value) &&
-                      value.map((val, index) => (
-                        <button
-                          key={`${val}_${index}`}
-                          className="min-w-min h-8 rounded-lg focus:outline-none p-2 focus:ring-2 focus:ring-offset-2 focus:ring-black mx-1"
-                        >
-                          {val}
-                        </button>
-                      ))}
-                  </div>
-                )
-              )}
-            </div>
+              <Variations productId={productData.id} variationTypes={productData.variationTypes} onVariationUpdate={handleVariationUpdates}/>
+         
 
             <div className="mb-6">
               <label
@@ -228,7 +207,28 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
                 Wishlist
               </button>
             </div>
+
+
+  {/* Zoomed View in the Product Details Section */}
+  {zoomArea && (
+              <div
+                className="absolute top-0 right-4 left-2 sm:left-0 w-full h-[80%] bg-no-repeat rounded-lg"
+                style={{
+                  backgroundImage: `url(${mainImage})`,
+                  backgroundSize: "300%", // Adjust zoom level
+                  backgroundPosition: zoomArea,
+                }}
+              />
+            )}
+
+
+
           </div>
+
+              
+
+
+
         </div>
       </div>
     </div>

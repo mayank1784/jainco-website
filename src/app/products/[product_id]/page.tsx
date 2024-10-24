@@ -9,6 +9,7 @@ import { getCombinationsWithKeys } from "@/src/lib/utils";
 import type { Metadata } from "next";
 
 
+
 ////////////////////////////////////// Metadata Generation ////////////////////////////////////////////////////////////
 
 export async function generateMetadata({
@@ -204,7 +205,8 @@ export default async function Page({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
       />
-      <ProductPage productData={product} categoryData={category} />;
+ 
+      <ProductPage productData={product} categoryData={category} />
     </>
-  );
+  )
 }

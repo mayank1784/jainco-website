@@ -2,18 +2,32 @@
 interface SearchResult {
 
     [key: string]: any; // Allows any other properties
+
   }
-export default function SearchResults({ results }:  { results: SearchResult[] }) {
-    if (!results.length) return <p>No results found.</p>;
-  
+import type { Product } from "@/@types/types";
+import ProductGrid from "./ProductGrid";
+export default function SearchResults({ results, query }:  { results: SearchResult[], query:string }) {
+    if (!results[0].hits.length) return <p>No results found.</p>;
+    const products:Product[] = results[0].hits.map((result:SearchResult)=>{
+      return {
+        id: result.objectID,
+        name: result.name,
+        category: result.category,
+        description: result.description,
+        createdAt: "",
+        lowerPrice: result.lowerPrice,
+        upperPrice: result.upperPrice,
+        mainImage: result.mainImage,
+        variationTypes:{
+          "":[...result.variationTypes]
+        }
+      }
+    })
+  console.log(products)
     return (
       <div className="mt-4">
-        {results[0].hits.map((result:SearchResult) => (
-          <div key={result.objectID} className="border-b py-2">
-            <h2 className="text-xl font-bold">{result.name}</h2>
-            <p>{result.description}</p>
-          </div>
-        ))}
+        
+        <ProductGrid heading={`Search Results for ${query}`} products={products}/>
       </div>
     );
   }
