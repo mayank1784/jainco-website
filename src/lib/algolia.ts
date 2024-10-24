@@ -8,7 +8,7 @@ const client = algoliasearch(
 
 const index = "products";
 export async function fetchSearchResults(query: string) {
-  if (!query) return [];
+  if (!query || query==="") return [];
   const { results } = await client.search({
     requests: [
       {

@@ -11,21 +11,23 @@ export default function SearchPage() {
 
   const [results, setResults] = useState<Record<string,any>[]>([]);
   const [loading, setLoading] = useState(true);
+  const searchQuery = searchParams.get('q') || null
 
   useEffect(() => {
-    const searchQuery = searchParams.get('q') || '';
-   
-
+   if (searchQuery){
     fetchSearchResults(searchQuery).then((data) => {
       setResults(data);
       setLoading(false);
-    });
-  }, [searchParams]);
+    });}
+   else{
+    setLoading(false)
+   }
+  }, [searchParams, searchQuery]);
 
   return (
     <div>
      
-      {loading ? <p>Loading...</p> : <SearchResults results={results} query={searchParams.get('q') || ""} />}
+      {loading ? <p>Loading...</p> : (searchQuery ? <SearchResults results={results} query={searchQuery} />: <p>No Results found</p>)}
     </div>
   );
 }

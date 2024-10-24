@@ -7,7 +7,7 @@ interface SearchResult {
 import type { Product } from "@/@types/types";
 import ProductGrid from "./ProductGrid";
 export default function SearchResults({ results, query }:  { results: SearchResult[], query:string }) {
-    if (!results[0].hits.length) return <p>No results found.</p>;
+    if (!results || !results[0].hits.length) return <p>No results found.</p>;
     const products:Product[] = results[0].hits.map((result:SearchResult)=>{
       return {
         id: result.objectID,
