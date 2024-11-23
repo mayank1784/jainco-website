@@ -1,6 +1,6 @@
 "use client";
 import type { Product, Category } from "@/@types/types";
-import { FaChevronCircleRight, FaChevronCircleLeft, FaTimes } from "react-icons/fa";
+import { FaChevronCircleRight, FaChevronCircleLeft, FaTimes, FaWhatsapp } from "react-icons/fa";
 interface ProductDetailsProps {
   productData: Product;
   categoryData: Category;
@@ -268,7 +268,7 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
             </div>
 
             <div className="flex space-x-4 mb-6">
-              <button className="bg-indigo-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+              {/* <button className="bg-indigo-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -284,7 +284,25 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
                   />
                 </svg>
                 Add to Cart
-              </button>
+              </button> */}
+              <a
+                  href={`https://wa.me/919891521784?text=
+                    ${encodeURIComponent(
+                      `Hello Jainco Decor!
+                      
+I am interested in buying:
+                       
+*Product*: _${productName}_
+*Image*: ${mainImage}
+                       
+Looking forward to your response!`
+                    )}`}
+                  target="_blank"
+                >
+                  <button className="bg-gray-900 text-white py-4 px-4 rounded-md font-iregular hover:bg-transparent hover:border hover:border-gray-900 hover:text-primary text-lg md:text-base flex items-center justify-center gap-2">
+                    <FaWhatsapp /> Enquire Now
+                  </button>
+                </a>
               <button className="bg-gray-200 flex gap-2 items-center text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                 Wishlist
               </button>
