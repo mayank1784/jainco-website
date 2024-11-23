@@ -1,6 +1,6 @@
 "use client";
 import type { Product, Category } from "@/@types/types";
-
+import { FaChevronCircleRight, FaChevronCircleLeft, FaTimes } from "react-icons/fa";
 interface ProductDetailsProps {
   productData: Product;
   categoryData: Category;
@@ -34,9 +34,41 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   const [productName, setProductName] = useState<string>(productData.name || "")
   const [price, setPrice] = useState<number>(productData.lowerPrice)
   const [allImages,setAllImages] = useState<string[]>([productData.mainImage, ...(productData.otherImages || [])]);
-  const changeImage = (src: string) => setMainImage(src);
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(
+    allImages.indexOf(productData.mainImage) || 0
+  );
 
-// const [variations, setVariations] = useState<Variation[] | null>(null)
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+  // Open modal
+  const openModal = () => setModalOpen(true);
+
+  // Close modal
+  const closeModal = () => setModalOpen(false);
+  // const changeImage = (src: string) => setMainImage(src);
+  const changeImage = (index: number) => {
+    if (index >= 0 && index < allImages.length) {
+      setMainImage(allImages[index]);
+      setCurrentImageIndex(index);
+    }
+  };
+
+  const handleNext = () => {
+    const nextIndex = (currentImageIndex + 1) % allImages.length;
+    changeImage(nextIndex);
+  };
+
+  const handlePrevious = () => {
+    const previousIndex =
+      (currentImageIndex - 1 + allImages.length) % allImages.length;
+    changeImage(previousIndex);
+  };
+
+
+
 const handleVariationUpdates = useCallback((productName: string, price: number, variationImages:string[])=>{
   const updatedName = `${productData.name} ${productName}`;
   if (productName !== updatedName) setProductName(updatedName);
@@ -56,9 +88,6 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
   // const [selectionRect, setSelectionRect] = useState({ top: 0, left: 0 });
 
  
-
-
-
   const handleMouseLeave = () => {
     // Clear the zoom area when the mouse leaves the image
     setZoomArea(null);
@@ -94,6 +123,7 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
           
             onMouseLeave={handleMouseLeave}
             onMouseMove={handleMouseMove}
+            onClick={isMobile ? openModal : undefined}
             >
             <Image
               src={mainImage}
@@ -102,11 +132,24 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
              
               fill
             />
+            {/* Navigation Arrows */}
+        <button
+          onClick={handlePrevious}
+          className="z-30 absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70 transition"
+        >
+          <FaChevronCircleLeft className="h-6 w-6" />
+        </button>
+        <button
+          onClick={handleNext}
+          className="z-30 absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70 transition"
+        >
+          <FaChevronCircleRight className="h-6 w-6" />
+        </button>
 
               {/* Rectangle showing the selected area on hover */}
-              {zoomArea && (
+              {zoomArea && !isMobile && (
                 <div
-                  className="absolute "
+                  className="absolute pointer-events-none"
                   style={{
                     top: `${zoomPosition.y - 50}px`,
                     left: `${zoomPosition.x - 50}px`,
@@ -134,7 +177,7 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
                   src={src}
                   alt={`Thumbnail ${index + 1}`}
                   className="w-16 sm:w-20 md:object-cover object-contain rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
-                  onClick={() => changeImage(src)}
+                  onClick={() => changeImage(index)}
                 
                 fill
                 />
@@ -142,6 +185,45 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
               ))}
             </div>
           </div>
+
+{/*============================================Modal for Mobile Screens ===================================================*/}
+{isModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute z-50 top-4 right-4 text-white bg-black/50 p-2 rounded-full hover:bg-black/70 z-999"
+          >
+            <FaTimes className="h-6 w-6" />
+          </button>
+
+          {/* Main Image in Modal */}
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Image
+              src={allImages[currentImageIndex]}
+              alt={`Product ${currentImageIndex + 1}`}
+              className="w-auto max-h-full max-w-full object-contain pointer-events-none"
+              fill
+            />
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={handlePrevious}
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70"
+            >
+              <FaChevronCircleLeft className="h-8 w-8" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70"
+            >
+              <FaChevronCircleRight className="h-8 w-8" />
+            </button>
+          </div>
+        </div>
+      )}
+{/* =================================================================================================================================================== */}
+
 
           {/* Product Details */}
           <div className="w-full  px-4 relative">

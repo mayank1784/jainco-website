@@ -8,6 +8,7 @@ interface VariationProps{
     onVariationUpdate: (productName:string, price:number, variationImages:string[])=>void;
 }
 import React from 'react'
+// import { useRouter } from 'next/navigation';
 type UnavailableCombination =  {
     combination: Record<string, string>;
     reason: string;
@@ -104,12 +105,25 @@ type UnavailableCombination =  {
 
 
 const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariationUpdate}) => {
+  // const router = useRouter()
     const [variations, setVariations] = useState<Variation[] | null>(null)
     const [selectedAttributes, setSelectedAttributes] = useState<VariationType>(
         {}
       );
       const [unavailableComb, setUnavailableComb] = useState<UnavailableCombinations>([]);
       const [variationTypesArray, setVariationTypesArray] = useState<string[]>([]);
+
+      // useEffect(() => {
+      //   const currentUrl = new URL(window.location.href); // Get the current URL
+      
+      //   // Update the URL search parameters with selected attributes
+      //   Object.entries(selectedAttributes).forEach(([key, value]) => {
+      //     currentUrl.searchParams.set(key, value);
+      //   });
+      
+      //   // Push the updated URL to the router
+      //   router.push(currentUrl.toString());
+      // }, [selectedAttributes]);
 
       useEffect(() => {
         // Generate product name based on selected attributes
@@ -215,6 +229,7 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
 
     if (firstAvailableCombination) {
       setSelectedAttributes(firstAvailableCombination);
+
     }
   }, [unavailableComb, variations, variationTypes]);
 
