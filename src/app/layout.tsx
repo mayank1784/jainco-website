@@ -76,6 +76,7 @@ export default async function RootLayout({
   
 }>) {
   const { categories } = await fetchCategories();
+  // console.log(JSON.stringify(categories, null, 2))
   
 
   return (

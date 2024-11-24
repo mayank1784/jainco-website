@@ -230,9 +230,29 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
             <h2 className="text-2xl sm:text-3xl font-bold mb-2 capitalize">
               {productName}
             </h2>
+            <div className="flex flex-row justify-between items-center sm:block">
             <p className="text-gray-600 mb-4 capitalize">
               Category: {categoryData.name}
             </p>
+            <a className="sm:hidden"
+                  href={`https://wa.me/919891521784?text=
+                    ${encodeURIComponent(
+                      `Hello Jainco Decor!
+                      
+I am interested in buying:
+                       
+*Product*: _${productName}_
+*Image*: ${mainImage}
+                       
+Looking forward to your response!`
+                    )}`}
+                  target="_blank"
+                >
+                  <button className="bg-gray-900 text-white py-2 px-2 rounded-md font-iregular hover:bg-transparent hover:border hover:border-gray-900 hover:text-primary text-sm md:text-base flex items-center justify-center gap-2">
+                    <FaWhatsapp /> Enquire Now
+                  </button>
+                </a>
+            </div>
             <div className="mb-4">
             <span className="text-2xl font-bold mr-2">
               ₹{price.toFixed(2)}
