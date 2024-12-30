@@ -1,6 +1,7 @@
 "use client";
 import type { Product, Category } from "@/@types/types";
 import { FaChevronCircleRight, FaChevronCircleLeft, FaTimes, FaWhatsapp } from "react-icons/fa";
+
 interface ProductDetailsProps {
   productData: Product;
   categoryData: Category;
@@ -8,14 +9,15 @@ interface ProductDetailsProps {
     ratings: number,
     reviews: number,
   }
+ 
 }
 import { stripHtmlTags } from "@/src/lib/utils";
-
 import { useCallback, useState } from "react";
 import Image from "next/image";
 import StarRating from "@/src/components/Ratings";
 
 import dynamic from "next/dynamic";
+
 
 const Variations = dynamic(()=>import("@/src/components/Variations"),{
   ssr: false,
@@ -25,8 +27,11 @@ const Variations = dynamic(()=>import("@/src/components/Variations"),{
 const ProductDetails: React.FC<ProductDetailsProps> = ({
   productData,
   categoryData,
-  ratingReviews
+  ratingReviews,
+
 }) => {
+  
+
   const [mainImage, setMainImage] = useState<string>(
    productData.mainImage || ""
   );
@@ -74,6 +79,8 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
   if (productName !== updatedName) setProductName(updatedName);
   // if (price !== variationPrice) 
     setPrice(price);
+  
+  
     
     // Update the main image and all images
     const newMainImage = variationImages[0] || productData.mainImage; // First image from the variation
@@ -131,6 +138,7 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
               className="w-full h-full rounded-lg shadow-md mb-4 object-fill"
              
               fill
+              priority
             />
             {/* Navigation Arrows */}
         <button
@@ -267,7 +275,7 @@ Looking forward to your response!`
            />
            
             <p className="text-gray-700 mb-6">{description}</p>
-              <Variations productId={productData.id} variationTypes={productData.variationTypes} onVariationUpdate={handleVariationUpdates}/>
+              <Variations productId={productData.id} variationTypes={productData.variationTypes} onVariationUpdate={handleVariationUpdates} />
          
 
             <div className="mb-6">
@@ -288,23 +296,7 @@ Looking forward to your response!`
             </div>
 
             <div className="flex space-x-4 mb-6">
-              {/* <button className="bg-indigo-600 flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437..."
-                  />
-                </svg>
-                Add to Cart
-              </button> */}
+             
               <a
                   href={`https://wa.me/919891521784?text=
                     ${encodeURIComponent(

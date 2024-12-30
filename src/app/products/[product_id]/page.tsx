@@ -9,7 +9,6 @@ import { getCombinationsWithKeys } from "@/src/lib/utils";
 import type { Metadata } from "next";
 
 
-
 ////////////////////////////////////// Metadata Generation ////////////////////////////////////////////////////////////
 
 export async function generateMetadata({
@@ -45,8 +44,31 @@ export async function generateMetadata({
   // Dynamic metadata based on the category data
   return {
     title: `${productName}`,
-    description: `Explore ${productName} with variations such as ${variations}. ${stripHtmlTags(product?.description)}`,
+    description: `Explore ${productName} with variations such as ${variations}. ${stripHtmlTags(
+      product?.description
+    )}`,
     keywords: [productName, "Jainco Decor", "home decor", "products"],
+    openGraph: {
+      title: `${productName}`,
+      description: `${stripHtmlTags(product?.description)}`,
+      url: `https://jancodecor.com/product/${encodeURIComponent(
+        product.name.trim().replace(/\s+/g, "-").toLowerCase()
+      )}-${product.id}`,
+      images: [product.mainImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name}`,
+      description: `${stripHtmlTags(product?.description)}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
   };
 }
 
@@ -180,6 +202,7 @@ export default async function Page({
 }: {
   params: { product_id: string };
 }) {
+  
   const prodIdString = params.product_id;
   const prodId = prodIdString.split("-").pop() || "";
 
@@ -197,16 +220,18 @@ export default async function Page({
   }
 
   const jsonLdData = generateJsonLdData(category, product);
- 
-
+  
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
       />
- 
-      <ProductPage productData={product} categoryData={category} />
+
+      <ProductPage
+        productData={product}
+        categoryData={category}
+      />
     </>
-  )
+  );
 }

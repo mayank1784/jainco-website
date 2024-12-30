@@ -1,11 +1,15 @@
-'use client'
+"use client"
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { fetchVariationData } from '@/src/_data/product';
 import type { Variation, VariationType } from '@/@types/types';
+import { useRouter } from 'next/navigation'; // Import useRouter
+import { useSearchParams, usePathname } from 'next/navigation';
+
 interface VariationProps{
     productId: string;
     variationTypes:Record<string,string[]>;
     onVariationUpdate: (productName:string, price:number, variationImages:string[])=>void;
+   
 }
 import React from 'react'
 // import { useRouter } from 'next/navigation';
@@ -105,13 +109,56 @@ type UnavailableCombination =  {
 
 
 const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariationUpdate}) => {
-  // const router = useRouter()
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const [isInitialized, setIsInitialized] = useState(false);
     const [variations, setVariations] = useState<Variation[] | null>(null)
     const [selectedAttributes, setSelectedAttributes] = useState<VariationType>(
         {}
       );
+     
       const [unavailableComb, setUnavailableComb] = useState<UnavailableCombinations>([]);
       const [variationTypesArray, setVariationTypesArray] = useState<string[]>([]);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+      const updateURL = useCallback((attributes: VariationType) => {
+        const params = new URLSearchParams(searchParams.toString());
+        
+        Object.entries(attributes).forEach(([key, value]) => {
+          if (value) {
+            params.set(key, value);
+          } else {
+            params.delete(key);
+          }
+        });
+    
+       return params.toString()
+      }, [searchParams]);
+    
+      useEffect(() => {
+        if (isInitialized && Object.keys(selectedAttributes).length > 0) {
+          const queryString= updateURL(selectedAttributes);
+          router.replace(`${pathname}?${queryString}`)
+        }
+      }, [selectedAttributes, updateURL, pathname, router, isInitialized]);
+    
+      // Initialize from URL params
+      useEffect(() => {
+        const paramsObj: VariationType = {};
+        searchParams.forEach((value, key) => {
+          if (variationTypes[key]?.includes(value)) {
+            paramsObj[key] = value;
+          }
+        });
+        
+        if (Object.keys(paramsObj).length > 0) {
+          setSelectedAttributes(paramsObj);
+        }
+      }, [searchParams, variationTypes]);
+
+      ////////////////////////////////////////////////////////////////////////////////////
+
 
       // useEffect(() => {
       //   const currentUrl = new URL(window.location.href); // Get the current URL
@@ -147,6 +194,7 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
         // Update parent with both the name and the corresponding price (or 0 if not found)
         const price = selectedVariation ? selectedVariation.price : 0;
         onVariationUpdate(updatedName, price, variationImages);
+        
       }, [selectedAttributes, variations, onVariationUpdate]);
 
 
@@ -186,52 +234,98 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
     }
   }, [variationTypes]);
 
+  
+
   useEffect(() => {
-    if ( !variationTypes || !variations) return;
-
-    const findFirstAvailableCombination = () => {
-      const initialSelectedAttributes: VariationType = {};
-      const attributeNames = Object.keys(variationTypes);
-
-      // Recursive function to search for the first available combination
-      const searchCombination = (
-        index: number,
-        selected: VariationType
-      ): VariationType | null => {
-        // Base case: all attributes have been selected
-        if (index === attributeNames.length) {
-          // Check if the selected combination is available
-          return isCombinationUnavailable(selected, unavailableComb)
-            ? null // Combination is unavailable, return null
-            : selected; // Combination is available, return it
+    if (!isInitialized && variations && variationTypes) {
+      const paramsObj: VariationType = {};
+      searchParams.forEach((value, key) => {
+        if (variationTypes[key]?.includes(value)) {
+          paramsObj[key] = value;
         }
+      });
 
-        const attributeName = attributeNames[index];
+      if (Object.keys(paramsObj).length > 0 && !isCombinationUnavailable(paramsObj, unavailableComb)) {
+        setSelectedAttributes(paramsObj);
+        setIsInitialized(true);
+      } else {
+        const findFirstAvailableCombination = () => {
+          const initialSelectedAttributes: VariationType = {};
+          const attributeNames = Object.keys(variationTypes);
+          
+          const searchCombination = (index: number, selected: VariationType): VariationType | null => {
+            if (index === attributeNames.length) {
+              return isCombinationUnavailable(selected, unavailableComb) ? null : selected;
+            }
 
-        // Iterate over each value of the current attribute
-        for (const value of variationTypes[attributeName]) {
-          const testAttributes = { ...selected, [attributeName]: value };
+            const attributeName = attributeNames[index];
+            for (const value of variationTypes[attributeName]) {
+              const testAttributes = { ...selected, [attributeName]: value };
+              const result = searchCombination(index + 1, testAttributes);
+              if (result) return result;
+            }
+            return null;
+          };
 
-          // Recursively search the next attribute level
-          const result = searchCombination(index + 1, testAttributes);
+          return searchCombination(0, initialSelectedAttributes);
+        };
 
-          if (result) return result; // If a valid combination is found, return it
+        const firstAvailable = findFirstAvailableCombination();
+        if (firstAvailable) {
+          setSelectedAttributes(firstAvailable);
         }
-
-        return null; // No valid combinations found at this level
-      };
-
-      return searchCombination(0, initialSelectedAttributes);
-    };
-
-    // Find and set the first available combination of attributes
-    const firstAvailableCombination = findFirstAvailableCombination();
-
-    if (firstAvailableCombination) {
-      setSelectedAttributes(firstAvailableCombination);
-
+        setIsInitialized(true);
+      }
     }
-  }, [unavailableComb, variations, variationTypes]);
+  }, [variations, variationTypes, unavailableComb, isInitialized, searchParams]);
+
+
+  // useEffect(() => {
+  //   if ( !variationTypes || !variations) return;
+
+  //   const findFirstAvailableCombination = () => {
+  //     const initialSelectedAttributes: VariationType = {};
+  //     const attributeNames = Object.keys(variationTypes);
+
+  //     // Recursive function to search for the first available combination
+  //     const searchCombination = (
+  //       index: number,
+  //       selected: VariationType
+  //     ): VariationType | null => {
+  //       // Base case: all attributes have been selected
+  //       if (index === attributeNames.length) {
+  //         // Check if the selected combination is available
+  //         return isCombinationUnavailable(selected, unavailableComb)
+  //           ? null // Combination is unavailable, return null
+  //           : selected; // Combination is available, return it
+  //       }
+
+  //       const attributeName = attributeNames[index];
+
+  //       // Iterate over each value of the current attribute
+  //       for (const value of variationTypes[attributeName]) {
+  //         const testAttributes = { ...selected, [attributeName]: value };
+
+  //         // Recursively search the next attribute level
+  //         const result = searchCombination(index + 1, testAttributes);
+
+  //         if (result) return result; // If a valid combination is found, return it
+  //       }
+
+  //       return null; // No valid combinations found at this level
+  //     };
+
+  //     return searchCombination(0, initialSelectedAttributes);
+  //   };
+
+  //   // Find and set the first available combination of attributes
+  //   const firstAvailableCombination = findFirstAvailableCombination();
+
+  //   if (firstAvailableCombination) {
+  //     setSelectedAttributes(firstAvailableCombination);
+
+  //   }
+  // }, [unavailableComb, variations, variationTypes]);
 
 
   const handleAttributeSelection = (attributeName: string, value: string) => {
