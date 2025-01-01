@@ -1,6 +1,6 @@
 "use client";
 import type { Product, Category } from "@/@types/types";
-import { FaChevronCircleRight, FaChevronCircleLeft, FaTimes, FaWhatsapp } from "react-icons/fa";
+import { FaChevronCircleRight, FaChevronCircleLeft, FaTimes, FaWhatsapp, FaShareSquare } from "react-icons/fa";
 
 interface ProductDetailsProps {
   productData: Product;
@@ -115,7 +115,58 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
 
        };
 
-
+       const handleShare = async () => {
+        const shareData = {
+          title: document.title, // Use the page title
+          text: 'Check out this amazing product!', // Custom text
+          url: window.location.href, // Current page URL
+        };
+      
+        // Add fallback image for platforms that support it
+       
+      
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            console.log('Content shared successfully!');
+          } catch (err) {
+            console.error('Error sharing:', err);
+          }
+        } else {
+          // Fallback modal or sharing options
+          const shareURL = encodeURIComponent(window.location.href);
+          
+      
+          const options = [
+            {
+              label: 'Copy Link',
+              action: () => navigator.clipboard.writeText(window.location.href),
+            },
+            {
+              label: 'WhatsApp',
+              url: `https://wa.me/?text=${shareURL}`,
+            },
+            {
+              label: 'Email',
+              url: `mailto:?subject=Check this out&body=Check out this amazing product: ${shareURL}`,
+            },
+            {
+              label: 'Twitter',
+              url: `https://twitter.com/intent/tweet?url=${shareURL}&text=Check%20out%20this%20amazing%20product!`,
+            },
+            {
+              label: 'Facebook',
+              url: `https://www.facebook.com/sharer/sharer.php?u=${shareURL}`,
+            },
+          ];
+      
+          // Render fallback UI
+          alert('Your browser does not support Web Share API. Use the fallback options below:');
+          console.log('Fallback Options:', options);
+          // Here you could display options in a modal or popup instead
+        }
+      };
+      
 
 
   return (
@@ -275,7 +326,7 @@ Looking forward to your response!`
            />
            
             <p className="text-gray-700 mb-6">{description}</p>
-              <Variations productId={productData.id} variationTypes={productData.variationTypes} onVariationUpdate={handleVariationUpdates} />
+              <Variations productId={productData.id} variationTypes={productData.variationTypes} productName={productData.name} mainImage={productData.mainImage} onVariationUpdate={handleVariationUpdates} />
          
 
             <div className="mb-6">
@@ -315,8 +366,9 @@ Looking forward to your response!`
                     <FaWhatsapp /> Enquire Now
                   </button>
                 </a>
-              <button className="bg-gray-200 flex gap-2 items-center text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
-                Wishlist
+               
+              <button type='button' className="bg-gray-200 flex gap-2 items-center text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onClick={handleShare}>
+               <FaShareSquare/> Share
               </button>
             </div>
 

@@ -69,7 +69,7 @@ export default async function HomePage() {
     "@context": "https://schema.org",
     "@graph": [jsonLdData, websiteJsonLd, categoryListJsonLd],
   };
-
+  
   return (
     <>
       <script

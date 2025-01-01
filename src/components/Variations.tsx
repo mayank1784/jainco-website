@@ -1,240 +1,315 @@
-"use client"
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import { fetchVariationData } from '@/src/_data/product';
-import type { Variation, VariationType } from '@/@types/types';
-import { useRouter } from 'next/navigation'; // Import useRouter
-import { useSearchParams, usePathname } from 'next/navigation';
+"use client";
+import { useState, useEffect, useCallback, useMemo } from "react";
+import { fetchVariationData } from "@/src/_data/product";
+import type { Variation, VariationType } from "@/@types/types";
+import { useRouter } from "next/navigation"; // Import useRouter
+import { useSearchParams, usePathname } from "next/navigation";
 
-interface VariationProps{
-    productId: string;
-    variationTypes:Record<string,string[]>;
-    onVariationUpdate: (productName:string, price:number, variationImages:string[])=>void;
-   
+interface VariationProps {
+  productId: string;
+  variationTypes: Record<string, string[]>;
+  productName: string;
+  mainImage: string;
+  onVariationUpdate: (
+    productName: string,
+    price: number,
+    variationImages: string[]
+  ) => void;
 }
-import React from 'react'
+import React from "react";
 // import { useRouter } from 'next/navigation';
-type UnavailableCombination =  {
+type UnavailableCombination = {
+  combination: Record<string, string>;
+  reason: string;
+};
+type UnavailableCombinations = UnavailableCombination[];
+
+function stringifyVariationType(variationType: Record<string, string>): string {
+  const sortedKeys = Object.keys(variationType).sort();
+  const sortedObj = sortedKeys.reduce((obj, key) => {
+    obj[key] = variationType[key];
+    return obj;
+  }, {} as Record<string, string>);
+  return JSON.stringify(sortedObj);
+}
+function cartesianProduct(arrays: string[][]): string[][] {
+  return arrays.reduce(
+    (acc, curr) => acc.flatMap((x) => curr.map((y) => [...x, y])),
+    [[]] as string[][]
+  );
+}
+
+const findUnavailableCombinations = (
+  variationTypes: Record<string, string[]>,
+  variations: Variation[]
+): { combination: Record<string, string>; reason: string }[] => {
+  const keys = Object.keys(variationTypes);
+  const values = keys.map((key) => variationTypes[key]);
+
+  // Generate all possible combinations
+  const allCombinations = cartesianProduct(values).map((combination) =>
+    keys.reduce((obj, key, index) => {
+      obj[key] = combination[index];
+      return obj;
+    }, {} as Record<string, string>)
+  );
+
+  // Create a map of available variations for quick lookup
+  const availableCombinationsMap = new Map<
+    string,
+    { isAvailable: boolean; stock: number }
+  >(
+    variations.map((v) => [
+      stringifyVariationType(v.variationType),
+      { isAvailable: v.isAvailable, stock: v.stock },
+    ])
+  );
+
+  // Initialize the array for storing unavailable combinations
+  const unavailableCombinations: {
     combination: Record<string, string>;
     reason: string;
-  }
-  type UnavailableCombinations = UnavailableCombination[]
+  }[] = [];
 
+  // Check all possible combinations
+  for (const combination of allCombinations) {
+    const combinationStr = stringifyVariationType(combination);
+    const available = availableCombinationsMap.get(combinationStr);
 
-  function stringifyVariationType(variationType: Record<string, string>): string {
-    const sortedKeys = Object.keys(variationType).sort();
-    const sortedObj = sortedKeys.reduce((obj, key) => {
-      obj[key] = variationType[key];
-      return obj;
-    }, {} as Record<string, string>);
-    return JSON.stringify(sortedObj);
-  }
-  function cartesianProduct(arrays: string[][]): string[][] {
-    return arrays.reduce(
-      (acc, curr) => acc.flatMap((x) => curr.map((y) => [...x, y])),
-      [[]] as string[][]
-    );
-  }
-  
-
-
-
-
-  const findUnavailableCombinations = (
-    variationTypes: Record<string,string[]>,
-    variations:Variation[]
-  ): { combination: Record<string, string>; reason: string }[] => {
-    const keys = Object.keys(variationTypes);
-    const values = keys.map(key => variationTypes[key]);
-  
-    // Generate all possible combinations
-    const allCombinations = cartesianProduct(values).map(combination => 
-      keys.reduce((obj, key, index) => {
-        obj[key] = combination[index];
-        return obj;
-      }, {} as Record<string, string>)
-    );
-  
-    // Create a map of available variations for quick lookup
-    const availableCombinationsMap = new Map<string, { isAvailable: boolean; stock: number }>(
-      variations.map(v => [stringifyVariationType(v.variationType), { isAvailable: v.isAvailable, stock: v.stock }])
-    );
-  
-    // Initialize the array for storing unavailable combinations
-    const unavailableCombinations: { combination: Record<string, string>; reason: string }[] = [];
-  
-    // Check all possible combinations
-    for (const combination of allCombinations) {
-      const combinationStr = stringifyVariationType(combination);
-      const available = availableCombinationsMap.get(combinationStr);
-  
-      if (!available) {
-        unavailableCombinations.push({
-          combination,
-          reason: "Missing",
-        });
-      } else if (!available.isAvailable) {
-        unavailableCombinations.push({
-          combination,
-          reason: "Unavailable",
-        });
-      } else if (available.stock <= 0) {
-        unavailableCombinations.push({
-          combination,
-          reason: "Out of stock",
-        });
-      }
-    }
-  
-    return unavailableCombinations;
-  };
-
-  const isCombinationUnavailable = (
-    selectedAttributes: VariationType,
-    unavailableCombinations: UnavailableCombinations
-  ): boolean => {
-    if (!unavailableCombinations || unavailableCombinations.length === 0)
-      return false;
-
-    // Convert selected attributes to an array of [key, value] pairs
-    const selectedEntries = Object.entries(selectedAttributes);
-
-    // Check if any combination in unavailableComb matches the selectedAttributes
-    return unavailableCombinations.some((combination) => {
-      return selectedEntries.every(([attribute, value]) => {
-        // Check if the combination has this attribute with the same value
-        return combination.combination[attribute] === value;
+    if (!available) {
+      unavailableCombinations.push({
+        combination,
+        reason: "Missing",
       });
+    } else if (!available.isAvailable) {
+      unavailableCombinations.push({
+        combination,
+        reason: "Unavailable",
+      });
+    } else if (available.stock <= 0) {
+      unavailableCombinations.push({
+        combination,
+        reason: "Out of stock",
+      });
+    }
+  }
+
+  return unavailableCombinations;
+};
+
+const isCombinationUnavailable = (
+  selectedAttributes: VariationType,
+  unavailableCombinations: UnavailableCombinations
+): boolean => {
+  if (!unavailableCombinations || unavailableCombinations.length === 0)
+    return false;
+
+  // Convert selected attributes to an array of [key, value] pairs
+  const selectedEntries = Object.entries(selectedAttributes);
+
+  // Check if any combination in unavailableComb matches the selectedAttributes
+  return unavailableCombinations.some((combination) => {
+    return selectedEntries.every(([attribute, value]) => {
+      // Check if the combination has this attribute with the same value
+      return combination.combination[attribute] === value;
     });
-  };
+  });
+};
 
-
-const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariationUpdate}) => {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const pathname = usePathname()
+const Variations: React.FC<VariationProps> = ({
+  productId,
+  variationTypes,
+  productName,
+  mainImage,
+  onVariationUpdate,
+}) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
   const [isInitialized, setIsInitialized] = useState(false);
-    const [variations, setVariations] = useState<Variation[] | null>(null)
-    const [selectedAttributes, setSelectedAttributes] = useState<VariationType>(
-        {}
-      );
-     
-      const [unavailableComb, setUnavailableComb] = useState<UnavailableCombinations>([]);
-      const [variationTypesArray, setVariationTypesArray] = useState<string[]>([]);
+  const [variations, setVariations] = useState<Variation[] | null>(null);
+  const [selectedAttributes, setSelectedAttributes] = useState<VariationType>(
+    {}
+  );
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-      const updateURL = useCallback((attributes: VariationType) => {
-        const params = new URLSearchParams(searchParams.toString());
-        
-        Object.entries(attributes).forEach(([key, value]) => {
-          if (value) {
-            params.set(key, value);
-          } else {
-            params.delete(key);
-          }
-        });
-    
-       return params.toString()
-      }, [searchParams]);
-    
-      useEffect(() => {
-        if (isInitialized && Object.keys(selectedAttributes).length > 0) {
-          const queryString= updateURL(selectedAttributes);
-          router.replace(`${pathname}?${queryString}`)
-        }
-      }, [selectedAttributes, updateURL, pathname, router, isInitialized]);
-    
-      // Initialize from URL params
-      useEffect(() => {
-        const paramsObj: VariationType = {};
-        searchParams.forEach((value, key) => {
-          if (variationTypes[key]?.includes(value)) {
-            paramsObj[key] = value;
-          }
-        });
-        
-        if (Object.keys(paramsObj).length > 0) {
-          setSelectedAttributes(paramsObj);
-        }
-      }, [searchParams, variationTypes]);
+  const [unavailableComb, setUnavailableComb] =
+    useState<UnavailableCombinations>([]);
+  const [variationTypesArray, setVariationTypesArray] = useState<string[]>([]);
 
-      ////////////////////////////////////////////////////////////////////////////////////
+  useEffect(() => {
+    // For debugging
+    console.log("Updating JSON-LD schema");
 
+    const updateJsonLd = () => {
+      const scriptTag = document.querySelector(
+        'script[type="application/ld+json"]'
+      ) as HTMLScriptElement;
 
-      // useEffect(() => {
-      //   const currentUrl = new URL(window.location.href); // Get the current URL
-      
-      //   // Update the URL search parameters with selected attributes
-      //   Object.entries(selectedAttributes).forEach(([key, value]) => {
-      //     currentUrl.searchParams.set(key, value);
-      //   });
-      
-      //   // Push the updated URL to the router
-      //   router.push(currentUrl.toString());
-      // }, [selectedAttributes]);
+      if (!scriptTag) {
+        console.warn("JSON-LD script tag not found");
+        return;
+      }
 
-      useEffect(() => {
-        // Generate product name based on selected attributes
-        const updatedName =
-          Object.values(selectedAttributes).length > 0
-            ? ` (${Object.values(selectedAttributes).join(", ")})`
-            : "";
-    
-        // Find matching variation based on selected attributes
+      try {
+        const jsonLd = JSON.parse(scriptTag.innerText);
         const selectedVariation = variations?.find((variation) =>
           Object.entries(selectedAttributes).every(
             ([key, value]) => variation.variationType[key] === value
           )
         );
+        // Modify the `hasVariant` property with the selected variant
+        jsonLd.hasVariant = [
+          {
+            "@type": "Product",
+            name: `${productName} (${Object.values(selectedAttributes).join(
+              ", "
+            )})`,
+            sku: `${selectedVariation?.sku}`,
+            url: `https://jaincodecor.com/products/${encodeURIComponent(
+              productName.trim().replace(/\s+/g, "-").toLowerCase()
+            )}-${productId}?${new URLSearchParams(selectedAttributes)}`,
+            image: selectedVariation?.images?.[0] ?? mainImage,
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "INR",
+              price: selectedVariation?.price,
+              availability: "https://schema.org/InStock",
+              itemCondition: "https://schema.org/NewCondition",
+            },
+            additionalProperty: Object.entries(selectedAttributes).map(
+              ([key, value]) => ({
+                "@type": "PropertyValue",
+                name: key,
+                value: value,
+              })
+            ),
+          },
+        ];
 
-        let variationImages: string[] = [];
-        if (selectedVariation && selectedVariation.images && selectedVariation.images.length > 0){
-            variationImages = [...(selectedVariation.images || [])];
+        // Replace the content of the script tag with the updated JSON-LD
+        scriptTag.innerText = JSON.stringify(jsonLd);
+      } catch (error) {
+        console.error("Error updating JSON-LD:", error);
+      }
+    };
+
+    updateJsonLd();
+
+    // No cleanup needed as we're just updating existing DOM
+    // return () => { ... };
+  }, [selectedAttributes, variations, productName, productId, mainImage]);
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////
+  const updateURL = useCallback(
+    (attributes: VariationType) => {
+      const params = new URLSearchParams(searchParams.toString());
+
+      Object.entries(attributes).forEach(([key, value]) => {
+        if (value) {
+          params.set(key, value);
+        } else {
+          params.delete(key);
         }
-    
-        // Update parent with both the name and the corresponding price (or 0 if not found)
-        const price = selectedVariation ? selectedVariation.price : 0;
-        onVariationUpdate(updatedName, price, variationImages);
-        
-      }, [selectedAttributes, variations, onVariationUpdate]);
+      });
 
+      return params.toString();
+    },
+    [searchParams]
+  );
 
-      useEffect(() => {
-        if (variations) {
-          const unava = findUnavailableCombinations(
-            variationTypes,
-            variations
-          );
-          setUnavailableComb(unava);
-        }
-      }, [variations, variationTypes]);
-    useEffect(() => {
+  useEffect(() => {
+    if (isInitialized && Object.keys(selectedAttributes).length > 0) {
+      const queryString = updateURL(selectedAttributes);
+      router.replace(`${pathname}?${queryString}`, { scroll: false });
+    }
+  }, [selectedAttributes, updateURL, pathname, router, isInitialized]);
+
+  // Initialize from URL params
+  useEffect(() => {
+    const paramsObj: VariationType = {};
+    searchParams.forEach((value, key) => {
+      if (variationTypes[key]?.includes(value)) {
+        paramsObj[key] = value;
+      }
+    });
+
+    if (Object.keys(paramsObj).length > 0) {
+      setSelectedAttributes(paramsObj);
+    }
+  }, [searchParams, variationTypes]);
+
+  ////////////////////////////////////////////////////////////////////////////////////
+
+  // useEffect(() => {
+  //   const currentUrl = new URL(window.location.href); // Get the current URL
+
+  //   // Update the URL search parameters with selected attributes
+  //   Object.entries(selectedAttributes).forEach(([key, value]) => {
+  //     currentUrl.searchParams.set(key, value);
+  //   });
+
+  //   // Push the updated URL to the router
+  //   router.push(currentUrl.toString());
+  // }, [selectedAttributes]);
+
+  useEffect(() => {
+    // Generate product name based on selected attributes
+    const updatedName =
+      Object.values(selectedAttributes).length > 0
+        ? ` (${Object.values(selectedAttributes).join(", ")})`
+        : "";
+
+    // Find matching variation based on selected attributes
+    const selectedVariation = variations?.find((variation) =>
+      Object.entries(selectedAttributes).every(
+        ([key, value]) => variation.variationType[key] === value
+      )
+    );
+
+    let variationImages: string[] = [];
+    if (
+      selectedVariation &&
+      selectedVariation.images &&
+      selectedVariation.images.length > 0
+    ) {
+      variationImages = [...(selectedVariation.images || [])];
+    }
+
+    // Update parent with both the name and the corresponding price (or 0 if not found)
+    const price = selectedVariation ? selectedVariation.price : 0;
+    onVariationUpdate(updatedName, price, variationImages);
+  }, [selectedAttributes, variations, onVariationUpdate]);
+
+  useEffect(() => {
+    if (variations) {
+      const unava = findUnavailableCombinations(variationTypes, variations);
+      setUnavailableComb(unava);
+    }
+  }, [variations, variationTypes]);
+  useEffect(() => {
     const getVariations = async () => {
-      const {variations}= await fetchVariationData(productId);
+      const { variations } = await fetchVariationData(productId);
       if (variations) {
-       
         setVariations(variations); // Update state with fetched variations
       } else {
         console.log("No variations found."); // Handle case where no variations exist
       }
     };
-  
+
     getVariations(); // run it, run it
-  
+
     return () => {
       // this now gets called when the component unmounts
     };
   }, [productId]);
-  
 
- useEffect(() => {
+  useEffect(() => {
     if (variationTypes) {
       setVariationTypesArray(() => {
         return Object.keys(variationTypes);
       });
     }
   }, [variationTypes]);
-
-  
 
   useEffect(() => {
     if (!isInitialized && variations && variationTypes) {
@@ -245,17 +320,25 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
         }
       });
 
-      if (Object.keys(paramsObj).length > 0 && !isCombinationUnavailable(paramsObj, unavailableComb)) {
+      if (
+        Object.keys(paramsObj).length > 0 &&
+        isCombinationUnavailable(paramsObj, unavailableComb)
+      ) {
         setSelectedAttributes(paramsObj);
         setIsInitialized(true);
       } else {
         const findFirstAvailableCombination = () => {
           const initialSelectedAttributes: VariationType = {};
           const attributeNames = Object.keys(variationTypes);
-          
-          const searchCombination = (index: number, selected: VariationType): VariationType | null => {
+
+          const searchCombination = (
+            index: number,
+            selected: VariationType
+          ): VariationType | null => {
             if (index === attributeNames.length) {
-              return isCombinationUnavailable(selected, unavailableComb) ? null : selected;
+              return isCombinationUnavailable(selected, unavailableComb)
+                ? null
+                : selected;
             }
 
             const attributeName = attributeNames[index];
@@ -277,8 +360,13 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
         setIsInitialized(true);
       }
     }
-  }, [variations, variationTypes, unavailableComb, isInitialized, searchParams]);
-
+  }, [
+    variations,
+    variationTypes,
+    unavailableComb,
+    isInitialized,
+    searchParams,
+  ]);
 
   // useEffect(() => {
   //   if ( !variationTypes || !variations) return;
@@ -327,7 +415,6 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
   //   }
   // }, [unavailableComb, variations, variationTypes]);
 
-
   const handleAttributeSelection = (attributeName: string, value: string) => {
     setSelectedAttributes((prevSelected) => {
       const newSelected = { ...prevSelected, [attributeName]: value };
@@ -339,7 +426,6 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
     });
   };
 
-  
   const getFirstValidCombination = (
     initialSelection: VariationType,
     fixedAttributes: { [key: string]: string }
@@ -498,105 +584,61 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
     return areAllCombinationsUnavailable(fixedAttributes);
   };
 
-
-
-
   return (
     <div className="mb-6">
-             
-{
-    Object.keys(variationTypes).map((attributeName, idx, array) => (
-        <div key={idx} className='mt-4'>
-            <h3 className='text-lg font-semibold capitalize'>{attributeName}</h3>
-            <div className="flex-row flex-wrap mt-2">
-                {variationTypes[attributeName].map((value:string, index:number)=>{
-                    const isSelected = selectedAttributes[attributeName] === value;
-                    if (idx === array.length - 1) {
-                        const isDisabled = isCombinationUnavailable(
-                          {
-                            ...selectedAttributes,
-                            [attributeName]: value,
-                          },
-                          unavailableComb
-                        );
-                        return(
-                            <button
-                            key={index}
-                            onClick={() =>
-                              !isDisabled &&
-                              handleAttributeSelection(
-                                attributeName,
-                                value
-                              )
-                            }
-                            className={`rounded-md py-2 mr-2 mb-2 px-4 text-sm ${
-                              isSelected
-                                ? "bg-secondary text-black"
-                                : isDisabled
-                                ? "border-dotted border border-red-500"
-                                : "border border-primary-200"
-                            }`}
-                            disabled={isDisabled}
-                          >
-                            <span
-                                      className={`font-rregular capitalize ${
-                                        isDisabled && "text-primary-100"
-                                      }`}
-                                    >
-                                      {value}
-                                    </span>
-                            </button>
-                        )
-
-                }
-                if (idx === 0) {
-                    const isDisabled =
-                                  areAllCombinationsUnavailable({
-                                    [attributeName]: value,
-                                  });
-                                  return (
-                                    <button
-                                      key={index}
-                                      onClick={() =>
-                                        !isDisabled &&
-                                        firstAttributeHandleAttributeSelection(
-                                          attributeName,
-                                          value
-                                        )
-                                      }
-                                      className={`rounded-md py-2 mr-2 mb-2 px-4 text-sm ${
-                                        isSelected
-                                          ? "bg-secondary text-black"
-                                          : isDisabled
-                                          ? "border-dotted border border-red-500"
-                                          : "border border-primary-200"
-                                      }`}
-                                      disabled={isDisabled}
-                                    >
-                                      <span
-                                        className={`font-rregular capitalize ${
-                                          isDisabled && "text-primary-100"
-                                        }`}
-                                      >
-                                        {value}
-                                      </span>
-                                    </button>
-                                  );
-                }
-                const isDisabled = handleDisabledState(
-                    attributeName,
-                    value,
-                    idx
+      {Object.keys(variationTypes).map((attributeName, idx, array) => (
+        <div key={idx} className="mt-4">
+          <h3 className="text-lg font-semibold capitalize">{attributeName}</h3>
+          <div className="flex-row flex-wrap mt-2">
+            {variationTypes[attributeName].map(
+              (value: string, index: number) => {
+                const isSelected = selectedAttributes[attributeName] === value;
+                if (idx === array.length - 1) {
+                  const isDisabled = isCombinationUnavailable(
+                    {
+                      ...selectedAttributes,
+                      [attributeName]: value,
+                    },
+                    unavailableComb
                   );
                   return (
                     <button
                       key={index}
                       onClick={() =>
                         !isDisabled &&
-                        betweenAttributeHandleAttributeSelection(
+                        handleAttributeSelection(attributeName, value)
+                      }
+                      className={`rounded-md py-2 mr-2 mb-2 px-4 text-sm ${
+                        isSelected
+                          ? "bg-secondary text-black"
+                          : isDisabled
+                          ? "border-dotted border border-red-500"
+                          : "border border-primary-200"
+                      }`}
+                      disabled={isDisabled}
+                    >
+                      <span
+                        className={`font-rregular capitalize ${
+                          isDisabled && "text-primary-100"
+                        }`}
+                      >
+                        {value}
+                      </span>
+                    </button>
+                  );
+                }
+                if (idx === 0) {
+                  const isDisabled = areAllCombinationsUnavailable({
+                    [attributeName]: value,
+                  });
+                  return (
+                    <button
+                      key={index}
+                      onClick={() =>
+                        !isDisabled &&
+                        firstAttributeHandleAttributeSelection(
                           attributeName,
-                          value,
-                          idx
+                          value
                         )
                       }
                       className={`rounded-md py-2 mr-2 mb-2 px-4 text-sm ${
@@ -616,16 +658,49 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
                         {value}
                       </span>
                     </button>
-                  );}
-
+                  );
+                }
+                const isDisabled = handleDisabledState(
+                  attributeName,
+                  value,
+                  idx
+                );
+                return (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      !isDisabled &&
+                      betweenAttributeHandleAttributeSelection(
+                        attributeName,
+                        value,
+                        idx
+                      )
+                    }
+                    className={`rounded-md py-2 mr-2 mb-2 px-4 text-sm ${
+                      isSelected
+                        ? "bg-secondary text-black"
+                        : isDisabled
+                        ? "border-dotted border border-red-500"
+                        : "border border-primary-200"
+                    }`}
+                    disabled={isDisabled}
+                  >
+                    <span
+                      className={`font-rregular capitalize ${
+                        isDisabled && "text-primary-100"
+                      }`}
+                    >
+                      {value}
+                    </span>
+                  </button>
+                );
+              }
             )}
-                </div>
-
+          </div>
         </div>
-    ))
-}
+      ))}
 
-              {/* {Object.entries(variationTypes).map(
+      {/* {Object.entries(variationTypes).map(
                 ([key, value]) => (
                   <div key={key}>
                     <h3 className="text-lg font-semibold mb-2">{key}:</h3>
@@ -642,8 +717,8 @@ const Variations:React.FC<VariationProps> = ({productId,variationTypes, onVariat
                   </div>
                 )
               )} */}
-            </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Variations
+export default Variations;

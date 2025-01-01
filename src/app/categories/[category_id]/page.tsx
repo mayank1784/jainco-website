@@ -5,6 +5,7 @@ import CategoryPage from "./CategoryPage";
 import type { Metadata } from "next";
 import type { Category } from "@/@types/types";
 
+
 // Helper function to generate consistent JSON-LD data
 const generateJsonLd = (categoryData: Category) => ({
   "@context": "https://schema.org",
