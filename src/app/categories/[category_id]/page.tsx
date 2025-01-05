@@ -7,59 +7,130 @@ import type { Category } from "@/@types/types";
 
 
 // Helper function to generate consistent JSON-LD data
-const generateJsonLd = (categoryData: Category) => ({
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  name: categoryData.name,
-  description: categoryData.description,
-  url: `https://jaincodecor.com/categories/${encodeURIComponent(categoryData.name.trim()
-    .replace(/\s+/g, "-")
-    .toLowerCase())}-${categoryData.id}`,
-  image: categoryData.image,
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://jaincodecor.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: categoryData.name,
-        item: `https://jaincodecor.com/categories/${encodeURIComponent(categoryData.name.trim()
-          .replace(/\s+/g, "-")
-          .toLowerCase())}-${categoryData.id}`,
-      },
-    ],
-  },
-  mainEntity: categoryData.products.map((product) => ({
-    "@type": "Product",
-    name: product.name,
-    url: `https://jaincodecor.com/products/${encodeURIComponent(product.name.trim()
-      .replace(/\s+/g, "-")
-      .toLowerCase())}-${product.id}`,
-    image: product.image || categoryData.image,
-    description: product.description,
-    brand: { "@type": "Brand", name: "Jainco Decor" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      price: product.price,
-      availability: "https://schema.org/InStock",
-      url: `https://jaincodecor.com/products/${encodeURIComponent(product.name.trim()
-        .replace(/\s+/g, "-")
-        .toLowerCase())}-${product.id}`,
+const generateJsonLd = (categoryData: Category) => {
+  const baseUrl = "https://jaincodecor.com";
+  const categorySlug = encodeURIComponent(
+    categoryData.name.trim().replace(/\s+/g, "-").toLowerCase()
+  );
+  const categoryUrl = `${baseUrl}/categories/${categorySlug}-${categoryData.id}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": categoryUrl,
+    "name": categoryData.name,
+    "description": categoryData.description,
+    "url": categoryUrl,
+    "image": {
+      "@type": "ImageObject",
+      "url": categoryData.image,
+      "caption": `${categoryData.name} - Collection by Jainco Decor`
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: (Math.random() * (4 - 4.9) + 4.9).toFixed(2), // Static value for consistency
-      reviewCount: Math.floor(Math.random() * (6400 - 1500 + 1)) + 1500, // Static value for consistency
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": baseUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Categories",
+          "item": `${baseUrl}/categories`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": categoryData.name,
+          "item": categoryUrl
+        }
+      ]
     },
-  })),
-});
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": categoryData.products.length,
+      "itemListElement": categoryData.products.map((product, index) => {
+        const productSlug = encodeURIComponent(
+          product.name.trim().replace(/\s+/g, "-").toLowerCase()
+        );
+        const productUrl = `${baseUrl}/products/${productSlug}-${product.id}`;
+
+        return {
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@type": "Product",
+            "@id": productUrl,
+            "name": product.name,
+            "url": productUrl,
+            "image": {
+              "@type": "ImageObject",
+              "url": product.image || categoryData.image,
+              "caption": `${product.name} - ${categoryData.name} Collection`
+            },
+            "description": product.description,
+            "category": categoryData.name,
+            "brand": {
+              "@type": "Brand",
+              "name": "Jainco Decor",
+              "logo": `${baseUrl}/logo.png`,
+              "url": baseUrl
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Jain Enterprises",
+              "url": baseUrl
+            },
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "price": product.price,
+              "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+              "availability": "https://schema.org/InStock" ,
+              "url": productUrl,
+              "seller": {
+                "@type": "Organization",
+                "name": "Jain Enterprises",
+                "url": baseUrl
+              },
+              "itemCondition": "https://schema.org/NewCondition",
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: (Math.random() * (4 - 4.9) + 4.9).toFixed(2),
+              reviewCount: Math.floor(Math.random() * (6400 - 1500 + 1)) + 1500,
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Collection",
+                "value": categoryData.name
+              },
+            ]
+          }
+        };
+      })
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": baseUrl,
+      "name": "Jainco Decor",
+      "url": baseUrl,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${baseUrl}/search?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  };
+};
+
 
 // Metadata for SSR
 export async function generateMetadata({

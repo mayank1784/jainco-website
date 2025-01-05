@@ -32,7 +32,7 @@ export const fetchProductData = async (productId: string): Promise<FetchProductR
   const cacheKey = productId; // Use productId as the key for caching
 
    // Log the productId being fetched
-   console.log("Fetching product data for productId:", productId);
+   console.log("Fetching product data for productId at:", productId);
 
   // Check if data is already cached for a specific productId
   if (productCache[cacheKey]) {

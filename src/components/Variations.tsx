@@ -158,36 +158,46 @@ const Variations: React.FC<VariationProps> = ({
           )
         );
         // Modify the `hasVariant` property with the selected variant
-        jsonLd.hasVariant = [
-          {
-            "@type": "Product",
-            name: `${productName} (${Object.values(selectedAttributes).join(
-              ", "
-            )})`,
-            sku: `${selectedVariation?.sku}`,
-            url: `https://jaincodecor.com/products/${encodeURIComponent(
-              productName.trim().replace(/\s+/g, "-").toLowerCase()
-            )}-${productId}?${new URLSearchParams(selectedAttributes)}`,
-            image: selectedVariation?.images?.[0] ?? mainImage,
-            offers: {
-              "@type": "Offer",
-              priceCurrency: "INR",
-              price: selectedVariation?.price,
-              availability: "https://schema.org/InStock",
-              itemCondition: "https://schema.org/NewCondition",
-            },
-            additionalProperty: Object.entries(selectedAttributes).map(
-              ([key, value]) => ({
-                "@type": "PropertyValue",
-                name: key,
-                value: value,
-              })
-            ),
-          },
-        ];
+        if (selectedVariation) {
+          jsonLd.sku = selectedVariation.sku;
+          const para = Object.entries(selectedAttributes)
+            .map(
+              ([key, value]) =>
+                `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+            )
+            .join("&");
+
+          jsonLd.url = `https://jaincodecor.com/products/${encodeURIComponent(
+            productName.trim().replace(/\s+/g, "-").toLowerCase()
+          )}-${productId}?${para}`;
+
+          jsonLd.name = `${productName}(${Object.values(selectedAttributes)
+            .map((value) => `${value}`)
+            .join(", ")})`;
+
+          jsonLd.offers = {
+            "@type": "Offer",
+            priceCurrency: "INR",
+            price: selectedVariation.price,
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+            priceValidUntil: new Date(
+              new Date().setFullYear(new Date().getFullYear() + 1)
+            )
+              .toISOString()
+              .split("T")[0],
+          };
+          if (selectedVariation.images?.[0]) {
+            jsonLd.image = [
+              selectedVariation.images[0],
+              ...jsonLd.image.slice(1),
+            ];
+          }
+        }
 
         // Replace the content of the script tag with the updated JSON-LD
         scriptTag.innerText = JSON.stringify(jsonLd);
+  
       } catch (error) {
         console.error("Error updating JSON-LD:", error);
       }

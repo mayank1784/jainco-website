@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jainco Decor | Decor your Dream Home",
     description:
-      "Home Furnishing | PVC Table Cloths | Appliance Covers | Mattress Protectors | Fridge Covers",
+      "Home Furnishing | PVC Table Cloths | Appliance Covers | Mattress Protectors | Appliance Covers",
     url: "https://jaincodecor.com",
     type: "website",
   },

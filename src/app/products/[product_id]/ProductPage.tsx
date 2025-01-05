@@ -3,6 +3,7 @@ import ProductDetails from "./ProductDetails";
 // import { stripHtmlTags } from "@/src/lib/utils";
 import dynamic from "next/dynamic";
 
+
 const RelatedProducts = dynamic(() => import("./relatedProducts"), {
     ssr: false,
     loading: () => (
@@ -10,6 +11,8 @@ const RelatedProducts = dynamic(() => import("./relatedProducts"), {
         Loading Related Products...
       </div>
     ),});
+
+
 
 interface ProductPageProps {
   productData: Product;
@@ -22,7 +25,7 @@ const ProductPage: React.FC<ProductPageProps> = ({
   categoryData,
  
 }) => {
-
+ 
 
 
   return (

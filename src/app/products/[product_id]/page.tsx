@@ -25,7 +25,7 @@ export async function generateMetadata({
       description: "The requested product could not be found.",
     };
   }
-
+console.log('under metadata')
   const { product } = await fetchProductData(prodId);
 
   if (!product) {
@@ -91,21 +91,31 @@ const generateJsonLdData = (categoryData: Category, productData: Product) => {
       offers: {
         "@type": "Offer",
         priceCurrency: "INR",
-        price: productData.lowerPrice,
+        price: prod.lowerPrice,
         availability: "https://schema.org/InStock",
       },
     }));
 
   return {
     "@context": "https://schema.org",
-    "@type": "ProductGroup",
+    "@type": "Product",
     name: productData.name,
+    "@id": `${process.env.NEXT_PUBLIC_BASE_URL}/products/${encodeURIComponent(
+      productData.name.trim().replace(/\s+/g, "-").toLowerCase()
+    )}-${productData.id}`,
     description: productDescription,
-    image: productData.mainImage,
+    image: [productData.mainImage, ...(productData.otherImages || [])],
     brand: {
       "@type": "Brand",
       name: "Jainco Decor",
+      logo: `${process.env.NEXT_PUBLIC_BASE_URL}/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjainco_logo.a07c60a1.png&w=1080&q=75`
     },
+    manufacturer:{
+      "@type": "Organization",
+      "name": "Jain Enterprises",
+      "url": process.env.NEXT_PUBLIC_BASE_URL
+    },
+    sku: productData.id,
     url: `https://jaincodecor.com/products/${encodeURIComponent(
       productData.name.trim().replace(/\s+/g, "-").toLowerCase()
     )}-${productData.id}`,
@@ -120,6 +130,12 @@ const generateJsonLdData = (categoryData: Category, productData: Product) => {
       "@type": "AggregateRating",
       ratingValue: (Math.random() * (4 - 4.9) + 4.9).toFixed(2),
       reviewCount: Math.floor(Math.random() * (6400 - 1500 + 1)) + 1500,
+    },
+    offers: undefined,
+    isVariantOf: {
+"@type": "ProductGroup",
+name: productData.name,
+hasVariants: undefined,
     },
     isRelatedTo: relatedProducts,
     breadcrumb: {
@@ -153,7 +169,7 @@ const generateJsonLdData = (categoryData: Category, productData: Product) => {
 };
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default async function Page({
   params,
@@ -165,9 +181,9 @@ export default async function Page({
   const prodId = prodIdString.split("-").pop() || "";
 
   // Fetch categories directly in the component
-
+console.log('under page product')
   const { product } = await fetchProductData(prodId);
-
+console.log('under page category')
   const { categories } = await fetchCategories(product?.category);
   const category = categories[0];
 

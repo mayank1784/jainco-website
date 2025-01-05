@@ -21,6 +21,7 @@ async function fetchAllProducts(categoryData: Category): Promise<Product[]> {
 
   const fetchedProducts = await Promise.all(
     prods.map(async (prod) => {
+      
       const { product } = await fetchProductData(prod.id);
       return { ...prod, ...product };
     })

@@ -1,21 +1,40 @@
-import { Product } from "@/@types/types";
+import { Category, Product } from "@/@types/types";
 import Image from "next/image";
 import { stripHtmlTags } from "@/src/lib/utils";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa";
+
 
 interface ProductGridProps {
   products: Product[];
   heading: string;
+  isCategoryPage?: boolean;
+  category?: Category
 }
 
-const ProductGrid: React.FC<ProductGridProps> = ({ products, heading }) => {
+const ProductGrid: React.FC<ProductGridProps> = ({ products, heading, isCategoryPage, category}) => {
   return (
     <div className="bg-primary py-16 px-4 border-t-4 border-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-white mb-8 capitalize">
+        {isCategoryPage ? 
+        <div className="flex flex-row justify-between items-center w-full h-auto mb-8">
+          <Link href={`/categories/${category?.name.replace(/\s+/g, "-")
+          .toLowerCase()}-${category?.id}`}>
+        <h2 className="text-3xl font-bold text-white capitalize hover:underline">
           {heading}
         </h2>
+        </Link>
+        <Link href={`/categories/${category?.name.replace(/\s+/g, "-")
+          .toLowerCase()}-${category?.id}`}>
+        <button type='button' className="text-xl font-iregular text-black bg-secondary px-4 py-2 rounded-md flex flex-row items-center gap-2 hover:text-white">
+          View <FaArrowRight />
+        </button></Link>
+      </div>
+       : <h2 className="text-3xl font-bold text-white mb-8 capitalize">
+          {heading}
+        </h2>}
+        
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
           {products.map((product) => (
             <div
@@ -55,10 +74,16 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, heading }) => {
               </p>
               <div className="flex items-center justify-between mt-4">
                 <div className="flex flex-col justify-start items-start">
-                  <span className="text-[#10B981] font-bold md:text-lg text-base">
-                    ₹{product.lowerPrice.toFixed(2)} - ₹
+                  {isCategoryPage ? 
+                    <span className="text-red-500 font-bold md:text-lg text-base">
+                    <span className="font-iregular text-sm text-secondary">Starting from</span> ₹
                     {product.upperPrice.toFixed(2)}
                   </span>
+                   : <span className="text-[#10B981] font-bold md:text-lg text-base">
+                    ₹{product.lowerPrice.toFixed(2)} - ₹
+                    {product.upperPrice.toFixed(2)}
+                  </span>}
+                  
                   <span className="md:text-xs text-[0.5rem] text-white bg-gray-500 rounded-lg p-1">
                     Wholesale Prices
                   </span>
