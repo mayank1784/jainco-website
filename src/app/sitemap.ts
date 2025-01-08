@@ -74,17 +74,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const data = await fetchProductData(product.id);
 
       // Generate URLs for variations based on all combinations of variationTypes
+      // const variationUrls = data.product?.variationTypes
+      //   ? generateCombinations(data.product.variationTypes).map((combination) => {
+      //       const queryParams = Object.entries(combination)
+      //         .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      //         .join("&");
+      //       return {
+      //         url: escapeXML(`${baseProductUrl}?${queryParams}`),
+      //         isCanonical: false
+      //       };
+      //     })
+      //   : [];
       const variationUrls = data.product?.variationTypes
-        ? generateCombinations(data.product.variationTypes).map((combination) => {
-            const queryParams = Object.entries(combination)
-              .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-              .join("&");
-            return {
-              url: escapeXML(`${baseProductUrl}?${queryParams}`),
-              isCanonical: false
-            };
-          })
-        : [];
+  ? generateCombinations(data.product.variationTypes).map((combination) => {
+      const queryParams = Object.entries(combination)
+        .sort(([keyA], [keyB]) => keyA.localeCompare(keyB)) // Sort keys in ascending order
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+        .join("&");
+      return {
+        url: escapeXML(`${baseProductUrl}?${queryParams}`),
+        isCanonical: false,
+      };
+    })
+  : [];
 
       // Return canonical URL and variation URLs
       return [
@@ -109,5 +121,6 @@ const formattedEntries: MetadataRoute.Sitemap = productEntries.map((entry) => ({
     ...categoryEntries,
     ...formattedEntries,
     { url: `${baseUrl}search` }, // Search page
+    {url: `${baseUrl}categories`}
   ];
 }

@@ -69,6 +69,11 @@ console.log('under metadata')
         follow: true,
       },
     },
+    alternates: {
+      canonical: `https://jancodecor.com/product/${encodeURIComponent(
+        product.name.trim().replace(/\s+/g, "-").toLowerCase()
+      )}-${product.id}`, // Add the canonical link here
+    },
   };
 }
 
