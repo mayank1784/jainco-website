@@ -32,3 +32,7 @@ export type Variation = {
 export type VariationType = {
   [key: string]: string;
 }
+export type UnavailableCombination = {
+  combination: Record<string, string>;
+  reason: string;
+};

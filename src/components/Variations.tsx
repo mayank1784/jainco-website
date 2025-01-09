@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { fetchVariationData } from "@/src/_data/product";
-import type { Variation, VariationType } from "@/@types/types";
+// import { fetchVariationData } from "@/src/_data/product";
+import type { Variation, VariationType, UnavailableCombination } from "@/@types/types";
 import { useRouter } from "next/navigation"; // Import useRouter
 import { useSearchParams, usePathname } from "next/navigation";
 
@@ -15,109 +15,94 @@ interface VariationProps {
     price: number,
     variationImages: string[]
   ) => void;
+  variations: Variation[],
+  unavailableComb: UnavailableCombination[]
 }
 import React from "react";
 // import { useRouter } from 'next/navigation';
-type UnavailableCombination = {
-  combination: Record<string, string>;
-  reason: string;
-};
-type UnavailableCombinations = UnavailableCombination[];
-
-function stringifyVariationType(variationType: Record<string, string>): string {
-  const sortedKeys = Object.keys(variationType).sort();
-  const sortedObj = sortedKeys.reduce((obj, key) => {
-    obj[key] = variationType[key];
-    return obj;
-  }, {} as Record<string, string>);
-  return JSON.stringify(sortedObj);
-}
-function cartesianProduct(arrays: string[][]): string[][] {
-  return arrays.reduce(
-    (acc, curr) => acc.flatMap((x) => curr.map((y) => [...x, y])),
-    [[]] as string[][]
-  );
-}
-
-const findUnavailableCombinations = (
-  variationTypes: Record<string, string[]>,
-  variations: Variation[]
-): { combination: Record<string, string>; reason: string }[] => {
-  const keys = Object.keys(variationTypes);
-  const values = keys.map((key) => variationTypes[key]);
-
-  // Generate all possible combinations
-  const allCombinations = cartesianProduct(values).map((combination) =>
-    keys.reduce((obj, key, index) => {
-      obj[key] = combination[index];
-      return obj;
-    }, {} as Record<string, string>)
-  );
-
-  // Create a map of available variations for quick lookup
-  const availableCombinationsMap = new Map<
-    string,
-    { isAvailable: boolean; stock: number }
-  >(
-    variations.map((v) => [
-      stringifyVariationType(v.variationType),
-      { isAvailable: v.isAvailable, stock: v.stock },
-    ])
-  );
-
-  // Initialize the array for storing unavailable combinations
-  const unavailableCombinations: {
-    combination: Record<string, string>;
-    reason: string;
-  }[] = [];
-
-  // Check all possible combinations
-  for (const combination of allCombinations) {
-    const combinationStr = stringifyVariationType(combination);
-    const available = availableCombinationsMap.get(combinationStr);
-
-    if (!available) {
-      unavailableCombinations.push({
-        combination,
-        reason: "Missing",
-      });
-    } else if (!available.isAvailable) {
-      unavailableCombinations.push({
-        combination,
-        reason: "Unavailable",
-      });
-    } else if (available.stock <= 0) {
-      unavailableCombinations.push({
-        combination,
-        reason: "Out of stock",
-      });
-    }
-  }
-
-  return unavailableCombinations;
-};
-
-// const isCombinationUnavailable = (
-//   selectedAttributes: VariationType,
-//   unavailableCombinations: UnavailableCombinations
-// ): boolean => {
-//   if (!unavailableCombinations || unavailableCombinations.length === 0)
-//     return false;
-
-//   // Convert selected attributes to an array of [key, value] pairs
-//   const selectedEntries = Object.entries(selectedAttributes);
-
-//   // Check if any combination in unavailableComb matches the selectedAttributes
-//   return unavailableCombinations.some((combination) => {
-//     return selectedEntries.every(([attribute, value]) => {
-//       // Check if the combination has this attribute with the same value
-//       return combination.combination[attribute] === value;
-//     });
-//   });
+// type UnavailableCombination = {
+//   combination: Record<string, string>;
+//   reason: string;
 // };
+// type UnavailableCombinations = UnavailableCombination[];
+
+// function stringifyVariationType(variationType: Record<string, string>): string {
+//   const sortedKeys = Object.keys(variationType).sort();
+//   const sortedObj = sortedKeys.reduce((obj, key) => {
+//     obj[key] = variationType[key];
+//     return obj;
+//   }, {} as Record<string, string>);
+//   return JSON.stringify(sortedObj);
+// }
+// function cartesianProduct(arrays: string[][]): string[][] {
+//   return arrays.reduce(
+//     (acc, curr) => acc.flatMap((x) => curr.map((y) => [...x, y])),
+//     [[]] as string[][]
+//   );
+// }
+
+// const findUnavailableCombinations = (
+//   variationTypes: Record<string, string[]>,
+//   variations: Variation[]
+// ): { combination: Record<string, string>; reason: string }[] => {
+//   const keys = Object.keys(variationTypes);
+//   const values = keys.map((key) => variationTypes[key]);
+
+//   // Generate all possible combinations
+//   const allCombinations = cartesianProduct(values).map((combination) =>
+//     keys.reduce((obj, key, index) => {
+//       obj[key] = combination[index];
+//       return obj;
+//     }, {} as Record<string, string>)
+//   );
+
+//   // Create a map of available variations for quick lookup
+//   const availableCombinationsMap = new Map<
+//     string,
+//     { isAvailable: boolean; stock: number }
+//   >(
+//     variations.map((v) => [
+//       stringifyVariationType(v.variationType),
+//       { isAvailable: v.isAvailable, stock: v.stock },
+//     ])
+//   );
+
+//   // Initialize the array for storing unavailable combinations
+//   const unavailableCombinations: {
+//     combination: Record<string, string>;
+//     reason: string;
+//   }[] = [];
+
+//   // Check all possible combinations
+//   for (const combination of allCombinations) {
+//     const combinationStr = stringifyVariationType(combination);
+//     const available = availableCombinationsMap.get(combinationStr);
+
+//     if (!available) {
+//       unavailableCombinations.push({
+//         combination,
+//         reason: "Missing",
+//       });
+//     } else if (!available.isAvailable) {
+//       unavailableCombinations.push({
+//         combination,
+//         reason: "Unavailable",
+//       });
+//     } else if (available.stock <= 0) {
+//       unavailableCombinations.push({
+//         combination,
+//         reason: "Out of stock",
+//       });
+//     }
+//   }
+
+//   return unavailableCombinations;
+// };
+
+
 const isCombinationUnavailable = (
   selectedAttributes: VariationType,
-  unavailableCombinations: UnavailableCombinations
+  unavailableCombinations: UnavailableCombination[]
 ): boolean => {
   if (!unavailableCombinations || unavailableCombinations.length === 0)
     return false;
@@ -149,126 +134,116 @@ const Variations: React.FC<VariationProps> = ({
   productName,
   mainImage,
   onVariationUpdate,
+  variations,
+  unavailableComb
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const [isInitialized, setIsInitialized] = useState(false);
-  const [variations, setVariations] = useState<Variation[] | null>(null);
+  // const [variations, setVariations] = useState<Variation[] | null>(null);
   const [selectedAttributes, setSelectedAttributes] = useState<VariationType>(
     {}
   );
 
-  const [unavailableComb, setUnavailableComb] =
-    useState<UnavailableCombinations>([]);
+  // const [unavailableComb, setUnavailableComb] =
+  //   useState<UnavailableCombinations>([]);
   const [variationTypesArray, setVariationTypesArray] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true)
+  // const [isLoading, setIsLoading] = useState(true)
 
-  // useEffect(()=>{
-  //   if (unavailableComb){
-  //     console.log('unava: ',JSON.stringify(unavailableComb, null, 2))
-  //   }
-  //   if(selectedAttributes){
-  //     console.log('selected',JSON.stringify(selectedAttributes, null, 2))
-  //   }
-  //   if (variations){
-  //     console.log('variation', JSON.stringify(variations,null,2))
-  //   }
-  // }, [variations, unavailableComb, selectedAttributes]
-  // )
-
+  
   // 1. First, fetch variations data
-  useEffect(() => {
-    const getVariations = async () => {
-      try {
-        const { variations } = await fetchVariationData(productId);
-        if (variations) {
-          setVariations(variations);
-          // Calculate unavailable combinations right after getting variations
-          const unavailable = findUnavailableCombinations(variationTypes, variations);
-          setUnavailableComb(unavailable);
-        }
-      } catch (error) {
-        console.error('Error fetching variations:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const getVariations = async () => {
+  //     try {
+  //       const { variations } = await fetchVariationData(productId);
+  //       if (variations) {
+  //         setVariations(variations);
+  //         // Calculate unavailable combinations right after getting variations
+  //         const unavailable = findUnavailableCombinations(variationTypes, variations);
+  //         setUnavailableComb(unavailable);
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching variations:', error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
 
-    getVariations();
-  }, [productId, variationTypes]);
-  useEffect(() => {
-    // For debugging
-    // console.log("Updating JSON-LD schema");
+  //   getVariations();
+  // }, [productId, variationTypes]);
+  // useEffect(() => {
+  //   // For debugging
+  //   // console.log("Updating JSON-LD schema");
 
-    const updateJsonLd = () => {
-      const scriptTag = document.querySelector(
-        'script[type="application/ld+json"]'
-      ) as HTMLScriptElement;
+  //   const updateJsonLd = () => {
+  //     const scriptTag = document.querySelector(
+  //       'script[type="application/ld+json"]'
+  //     ) as HTMLScriptElement;
 
-      if (!scriptTag) {
-        console.warn("JSON-LD script tag not found");
-        return;
-      }
+  //     if (!scriptTag) {
+  //       console.warn("JSON-LD script tag not found");
+  //       return;
+  //     }
 
-      try {
-        const jsonLd = JSON.parse(scriptTag.innerText);
-        const selectedVariation = variations?.find((variation) =>
-          Object.entries(selectedAttributes).every(
-            ([key, value]) => variation.variationType[key] === value
-          )
-        );
-        // Modify the `hasVariant` property with the selected variant
-        if (selectedVariation) {
-          jsonLd.sku = selectedVariation.sku;
-          const para = Object.entries(selectedAttributes)
-            .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
-            .map(
-              ([key, value]) =>
-                `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-            )
-            .join("&");
+  //     try {
+  //       const jsonLd = JSON.parse(scriptTag.innerText);
+  //       const selectedVariation = variations?.find((variation) =>
+  //         Object.entries(selectedAttributes).every(
+  //           ([key, value]) => variation.variationType[key] === value
+  //         )
+  //       );
+  //       // Modify the `hasVariant` property with the selected variant
+  //       if (selectedVariation) {
+  //         jsonLd.sku = selectedVariation.sku;
+  //         const para = Object.entries(selectedAttributes)
+  //           .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+  //           .map(
+  //             ([key, value]) =>
+  //               `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+  //           )
+  //           .join("&");
 
-          jsonLd.url = `https://jaincodecor.com/products/${encodeURIComponent(
-            productName.trim().replace(/\s+/g, "-").toLowerCase()
-          )}-${productId}?${para}`;
+  //         jsonLd.url = `https://jaincodecor.com/products/${encodeURIComponent(
+  //           productName.trim().replace(/\s+/g, "-").toLowerCase()
+  //         )}-${productId}?${para}`;
 
-          jsonLd.name = `${productName}(${Object.values(selectedAttributes)
-            .map((value) => `${value}`)
-            .join(", ")})`;
+  //         jsonLd.name = `${productName}(${Object.values(selectedAttributes)
+  //           .map((value) => `${value}`)
+  //           .join(", ")})`;
 
-          jsonLd.offers = {
-            "@type": "Offer",
-            priceCurrency: "INR",
-            price: selectedVariation.price,
-            availability: "https://schema.org/InStock",
-            itemCondition: "https://schema.org/NewCondition",
-            priceValidUntil: new Date(
-              new Date().setFullYear(new Date().getFullYear() + 1)
-            )
-              .toISOString()
-              .split("T")[0],
-          };
-          if (selectedVariation.images?.[0]) {
-            jsonLd.image = [
-              selectedVariation.images[0],
-              ...jsonLd.image.slice(1),
-            ];
-          }
-        }
+  //         jsonLd.offers = {
+  //           "@type": "Offer",
+  //           priceCurrency: "INR",
+  //           price: selectedVariation.price,
+  //           availability: "https://schema.org/InStock",
+  //           itemCondition: "https://schema.org/NewCondition",
+  //           priceValidUntil: new Date(
+  //             new Date().setFullYear(new Date().getFullYear() + 1)
+  //           )
+  //             .toISOString()
+  //             .split("T")[0],
+  //         };
+  //         if (selectedVariation.images?.[0]) {
+  //           jsonLd.image = [
+  //             selectedVariation.images[0],
+  //             ...jsonLd.image.slice(1),
+  //           ];
+  //         }
+  //       }
 
-        // Replace the content of the script tag with the updated JSON-LD
-        scriptTag.innerText = JSON.stringify(jsonLd);
-      } catch (error) {
-        console.error("Error updating JSON-LD:", error);
-      }
-    };
+  //       // Replace the content of the script tag with the updated JSON-LD
+  //       scriptTag.innerText = JSON.stringify(jsonLd);
+  //     } catch (error) {
+  //       console.error("Error updating JSON-LD:", error);
+  //     }
+  //   };
 
-    updateJsonLd();
+  //   updateJsonLd();
 
-    // No cleanup needed as we're just updating existing DOM
-    // return () => { ... };
-  }, [selectedAttributes, variations, productName, productId, mainImage]);
+  //   // No cleanup needed as we're just updating existing DOM
+  //   // return () => { ... };
+  // }, [selectedAttributes, variations, productName, productId, mainImage]);
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   const updateURL = useCallback(
@@ -392,7 +367,7 @@ const isValidCombination = (
 // Helper: Find the first valid and available combination
 const findFirstAvailableCombination = (
   variationTypes: Record<string, string[]>,
-  unavailableComb: UnavailableCombinations
+  unavailableComb: UnavailableCombination[]
 ): VariationType | null => {
   const attributeNames = Object.keys(variationTypes);
 
@@ -418,7 +393,7 @@ const findFirstAvailableCombination = (
 
 // Main useEffect Logic
 useEffect(() => {
-  if (!isInitialized && !isLoading && variations && variationTypes) {
+  if (!isInitialized && variations && variationTypes) {
     const paramsObj: VariationType = {};
 
     // Step 1: Populate paramsObj with valid search params
@@ -454,7 +429,7 @@ useEffect(() => {
 
     setIsInitialized(true);
   }
-}, [variations, variationTypes, unavailableComb, isInitialized, searchParams, isLoading]);
+}, [variations, variationTypes, unavailableComb, isInitialized, searchParams]);
 
 
 

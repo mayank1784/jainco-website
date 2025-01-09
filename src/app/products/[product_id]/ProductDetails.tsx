@@ -1,5 +1,5 @@
 "use client";
-import type { Product, Category } from "@/@types/types";
+import type { Product, Category, Variation, UnavailableCombination } from "@/@types/types";
 import { FaChevronCircleRight, FaChevronCircleLeft, FaTimes, FaWhatsapp, FaShareSquare } from "react-icons/fa";
 
 interface ProductDetailsProps {
@@ -8,7 +8,9 @@ interface ProductDetailsProps {
   ratingReviews: {
     ratings: number,
     reviews: number,
-  }
+  },
+  variationData: Variation[],
+  unavailableVariations: UnavailableCombination[]
  
 }
 import { stripHtmlTags } from "@/src/lib/utils";
@@ -28,6 +30,8 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   productData,
   categoryData,
   ratingReviews,
+  variationData,
+  unavailableVariations
 
 }) => {
   
@@ -326,7 +330,7 @@ Looking forward to your response!`
            />
            
             <p className="text-gray-700 mb-6">{description}</p>
-              <Variations productId={productData.id} variationTypes={productData.variationTypes} productName={productData.name} mainImage={productData.mainImage} onVariationUpdate={handleVariationUpdates} />
+              <Variations productId={productData.id} variationTypes={productData.variationTypes} productName={productData.name} mainImage={productData.mainImage} onVariationUpdate={handleVariationUpdates} variations={variationData as Variation[]} unavailableComb={unavailableVariations}  />
          
 
             <div className="mb-6">
