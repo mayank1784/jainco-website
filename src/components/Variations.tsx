@@ -145,6 +145,7 @@ const Variations: React.FC<VariationProps> = ({
   const [selectedAttributes, setSelectedAttributes] = useState<VariationType>(
     {}
   );
+  console.log(productId, productName, mainImage)
 
   // const [unavailableComb, setUnavailableComb] =
   //   useState<UnavailableCombinations>([]);
