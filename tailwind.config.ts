@@ -29,6 +29,15 @@ const config: Config = {
         rregular: ['var(--font-roboto)', 'sans-serif'],      // For Roboto Regular
         sregular: ['var(--font-space-mono)', 'sans-serif'],  // For Space Mono Regular
       },
+      animation: {
+        'scroll-left': 'scrollLeft 10s linear infinite',
+      },
+      keyframes: {
+        scrollLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
     },
     
   },

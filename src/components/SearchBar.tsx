@@ -21,7 +21,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ initialQuery }) => {
     }
   };
   return (
-    <div className=" relative border border-primary md:w-full sm:w-60 w-52 h-9 px-4 md:rounded-lg rounded-3xl focus-within:border-secondary flex items-center overflow-hidden">
+    <div className=" relative border border-primary md:w-full sm:w-60 w-52 h-9 px-4 md:rounded-lg rounded-xl focus-within:border-secondary flex items-center overflow-hidden">
        <div
         className="absolute inset-0 bg-no-repeat bg-center"
         style={{ 

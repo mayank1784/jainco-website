@@ -2,6 +2,7 @@
 import React, { useState, useEffect, ReactNode, useCallback } from "react";
 import Image from "next/image";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import Link from "next/link";
 
 type StaticImageData = {
   src: string;
@@ -15,6 +16,7 @@ type Slide = {
   src: StaticImageData;
   alt: string;
   overlay?: ReactNode; // To show custom overlay components/text on the image
+  link: string;
 };
 
 type CarouselProps = {
@@ -66,10 +68,11 @@ const Carousel: React.FC<CarouselProps> = ({
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
+            
             <div
-              key={slide.id}
+            key={slide.id}
               className="w-full flex-shrink-0 min-h-max md:h-96 relative"
-            >
+            ><Link  href={slide.link}>
               <Image
                 src={slide.src}
                 alt={slide.alt}
@@ -79,8 +82,9 @@ const Carousel: React.FC<CarouselProps> = ({
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white p-4">
                   {slide.overlay}
                 </div>
-              )}
+              )}</Link>
             </div>
+            
           ))}
         </div>
 
