@@ -72,7 +72,7 @@ export default function Navbar({ categories }: NavbarProps) {
     },
     {
       label: "About",
-      link: "#",
+      link: "/#about",
     },
   ];
 

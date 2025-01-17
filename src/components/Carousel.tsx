@@ -17,6 +17,7 @@ type Slide = {
   alt: string;
   overlay?: ReactNode; // To show custom overlay components/text on the image
   link: string;
+  description?: string;
 };
 
 type CarouselProps = {
@@ -54,7 +55,6 @@ const Carousel: React.FC<CarouselProps> = ({
     }
   }, [isPaused, slideInterval, nextSlide]); // Added nextSlide as a dependency
 
-
   return (
     <>
       <div
@@ -68,23 +68,24 @@ const Carousel: React.FC<CarouselProps> = ({
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
-            
             <div
-            key={slide.id}
+              key={slide.id}
               className="w-full flex-shrink-0 min-h-max md:h-96 relative"
-            ><Link  href={slide.link}>
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                className="object-contain md:object-fill w-full h-full hover:scale-110 transition-all ease-in-out duration-700"
-              /> 
-              {slide.overlay && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white p-4">
-                  {slide.overlay}
-                </div>
-              )}</Link>
+            >
+              <Link href={slide.link}>
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  className="object-contain md:object-fill w-full h-full hover:scale-110 transition-all ease-in-out duration-700"
+                />{" "}
+                <p className="absolute opacity-0 -z-10 overflow-hidden">{slide?.description}</p>
+                {slide.overlay && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white p-4">
+                    {slide.overlay}
+                  </div>
+                )}
+              </Link>
             </div>
-            
           ))}
         </div>
 
