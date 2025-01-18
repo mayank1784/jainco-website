@@ -76,7 +76,7 @@ const generateJsonLd = (categoryData: Category) => {
             "brand": {
               "@type": "Brand",
               "name": "Jainco Decor",
-              "logo": `${baseUrl}/logo.png`,
+              "logo": "https://jaincodecor.com/images/static/jainco_logo.png",
               "url": baseUrl
             },
             "manufacturer": {

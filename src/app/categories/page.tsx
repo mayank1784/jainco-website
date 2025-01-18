@@ -133,7 +133,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const keywords = categories.map((cat) => cat.name);
 
   return {
-    title: `Categories | Jainco Decor - Premium Home Furnishings`,
+    title: `Categories`,
     description: `Explore a wide range of home furnishing categories at Jainco Decor. From table cloths to shower curtains, find wide range of ${catNames} at wholesale prices`,
     keywords: ["Jainco Decor", "home decor", ...keywords],
   };

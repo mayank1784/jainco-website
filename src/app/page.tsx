@@ -3,7 +3,7 @@ import Carousel from "@/src/components/Carousel";
 import { FaGooglePlay } from "react-icons/fa6";
 import { fetchCategories } from "../_data/categories";
 import Link from "next/link";
-import jaincoStore from "@/public/images/jainco.png";
+import jaincoStore from "@/public/images/jain-enterprises.png";
 import tarunJain from "@/public/images/tarun-jain.jpg";
 import atulJain from "@/public/images/atul-jain.jpg";
 import FeaturedProducts from "@/src/components/Featured";
@@ -59,7 +59,7 @@ export default async function HomePage() {
     legalName: "Jain Enterprises",
     taxID: "07AZYPK0127D1ZE",
     url: "https://jaincodecor.com",
-    logo: "https://jaincodecor.com/static/jainco_logo.png",
+    logo: "https://jaincodecor.com/images/static/jainco_logo.png",
     description:
       "Jainco Decor specializes in PVC table covers, appliance covers, mattress protectors, fridge covers, and more for B2B buyers.",
     founders: founders.map((founder) => ({
@@ -68,6 +68,7 @@ export default async function HomePage() {
       email: founder.email,
       nationality: "indian",
       gender: "male",
+      image: `https://jaincodecor.com/images/${founder.name.toLowerCase().split(' ').join('-')}.jpg`
     })),
     foundingDate: "2007",
     sameAs: [

@@ -571,7 +571,7 @@ const generateJsonLdData = (
     if (type === "brand") {
       return {
         ...baseInfo,
-        logo: `${baseUrl}/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjainco_logo.a07c60a1.png&w=1080&q=75`
+        logo: "https://jaincodecor.com/images/static/jainco_logo.png"
       };
     }
 

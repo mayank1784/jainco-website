@@ -37,7 +37,7 @@ const spaceMono = localFont({
 export const metadata: Metadata = {
   title: {
     default:
-      "Wholesale B2B Home Furnishings | PVC Table Covers, Mattress Protectors & More - Jainco Decor",
+      "Wholesalers | PVC Table Covers | Mattress Protectors | Appliance Covers | Doormats",
     template: "Jainco Decor | %s",
   },
   description:
