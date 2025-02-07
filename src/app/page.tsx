@@ -1,3 +1,4 @@
+// "use client"
 import slides from "@/src/_data/carousel";
 import Carousel from "@/src/components/Carousel";
 import { FaGooglePlay } from "react-icons/fa6";
@@ -8,6 +9,7 @@ import tarunJain from "@/public/images/tarun-jain.jpg";
 import atulJain from "@/public/images/atul-jain.jpg";
 import FeaturedProducts from "@/src/components/Featured";
 import {featuredProducts} from "@/src/_data/featured"
+// import { sitemap } from "../sitemap/route";
 // import HomeePage from "./Sheet";
 // import { Suspense } from "react";
 import Image from "next/image";
@@ -51,6 +53,16 @@ const founders = [
 
 export default async function HomePage() {
   const { categories } = await fetchCategories();
+//   async function runSitemap() {
+//     try {
+//         const result = await sitemap();
+//         console.log(result);
+//     } catch (error) {
+//         console.error("Error generating sitemap:", error);
+//     }
+// }
+
+
 
   const jsonLdData = {
     "@context": "https://schema.org",
@@ -162,6 +174,7 @@ export default async function HomePage() {
               Download our App
             </a>
           </button>
+          {/* <button onClick={runSitemap}>Run sitemap</button> */}
         </div>
 
         <section className="py-6 w-full" id="categories">

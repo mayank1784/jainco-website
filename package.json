@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "@heroicons/react": "^2.2.0",
+    "@material-tailwind/react": "^2.1.10",
     "algoliasearch": "^5.8.1",
     "aos": "^2.3.4",
     "client-only": "^0.0.1",
@@ -25,6 +27,7 @@
     "react-icons": "^5.3.0",
     "server-only": "^0.0.1",
     "sharp": "^0.33.5",
+    "tailwind-scrollbar-hide": "^2.0.0",
     "tailwindcss-debug-screens": "^2.2.1"
   },
   "devDependencies": {

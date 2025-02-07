@@ -1,7 +1,8 @@
 import type { Config } from "tailwindcss";
 const flowbite = require("flowbite-react/tailwind");
+const withMT = require("@material-tailwind/react/utils/withMT");
 
-const config: Config = {
+const config: Config = withMT({
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      zIndex: {
+        '1000': '1000',
+      },
       colors: {
         primary: {
           DEFAULT: "#3c3c3c",
@@ -41,7 +45,7 @@ const config: Config = {
     },
     
   },
-  plugins: [require("tailwindcss-debug-screens"),flowbite.plugin(),],
+  plugins: [require("tailwindcss-debug-screens"),flowbite.plugin(), require('tailwind-scrollbar-hide')],
   
-};
+});
 export default config;

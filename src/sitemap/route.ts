@@ -14,7 +14,7 @@ const escapeXML = (str: string): string =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
 
-async function sitemap(): Promise<string> {
+export async function sitemap(): Promise<string> {
   const { categories } = await fetchCategories();
 
   // Helper function to ensure arrays
@@ -258,13 +258,7 @@ async function sitemap(): Promise<string> {
            (image) => `
        <image:image>
          <image:loc>${escapeXML(image.loc)}</image:loc>
-         ${image.title ? `<image:title>${image.title}</image:title>` : ""}
-         ${
-           image.caption
-             ? `<image:caption>${image.caption}</image:caption>`
-             : ""
-         }
-         ${image.alt ? `<image:alt>${image.alt}</image:alt>` : ""}
+        
        </image:image>`
          )
          .join("")}
@@ -282,13 +276,7 @@ async function sitemap(): Promise<string> {
            (image) => `
        <image:image>
          <image:loc>${escapeXML(image.loc as string)}</image:loc>
-         ${image.title ? `<image:title>${image.title}</image:title>` : ""}
-         ${
-           image.caption
-             ? `<image:caption>${image.caption}</image:caption>`
-             : ""
-         }
-         ${image.alt ? `<image:alt>${image.alt}</image:alt>` : ""}
+         
        </image:image>`
          )
          .join("")}
@@ -301,13 +289,8 @@ async function sitemap(): Promise<string> {
          .map(
            (image) => `
        <image:image>
-         <image:loc>${escapeXML(image.loc)}</image:loc>
-         ${image.title ? `<image:title>${image.title}</image:title>` : ""}
-         ${
-           image.caption
-             ? `<image:caption>${image.caption}</image:caption>`
-             : ""
-         }
+         <image:loc>${`${baseUrl}/images/${escapeXML(image.loc)}`}</image:loc>
+        
        </image:image>`
          )
          .join("")}
