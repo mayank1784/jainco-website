@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 
 import logo from "@/public/static/jainco_logo.png";
 import Link from "next/link";
-import { IoIosArrowDown } from "react-icons/io";
+
 
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
