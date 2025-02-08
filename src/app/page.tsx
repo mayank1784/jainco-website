@@ -53,13 +53,13 @@ const founders = [
 
 export default async function HomePage() {
   const { categories } = await fetchCategories();
-//   async function runSitemap() {
-//     try {
-//         const result = await sitemap();
-//         console.log(result);
-//     } catch (error) {
-//         console.error("Error generating sitemap:", error);
-//     }
+  // async function runSitemap() {
+  //   try {
+  //       const result = await sitemap();
+  //       console.log(result);
+  //   } catch (error) {
+  //       console.error("Error generating sitemap:", error);
+  //   }
 // }
 
 
