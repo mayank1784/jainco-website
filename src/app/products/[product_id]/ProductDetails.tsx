@@ -179,7 +179,7 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
 
         <div className="grid grid-cols-1 md:grid-cols-2 -mx-4 gap-4 min-h-max">
           {/* Product Images */}
-          <div className="relative flex flex-col gap-2 w-full px-4">
+          <div className="relative flex flex-col gap-2 w-full px-4" id="productImages">
         
             <div className="relative w-full cursor-crosshair aspect-square" //md:h-[80%] h-96
           
@@ -189,7 +189,7 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
             >
             <Image
               src={mainImage}
-              alt="Product"
+              alt={productName}
               className="w-full h-full rounded-lg shadow-md mb-4 object-fill"
              
               fill
@@ -290,11 +290,11 @@ const handleVariationUpdates = useCallback((productName: string, price: number, 
 
           {/* Product Details */}
           <div className="w-full  px-4 relative">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2 capitalize">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 capitalize" id="productTitle">
               {productName}
             </h2>
             <div className="flex flex-row justify-between items-center sm:block">
-            <p className="text-gray-600 mb-4 capitalize">
+            <p className="text-gray-600 mb-4 capitalize" id="productCategory">
               Category: {categoryData.name}
             </p>
             <a className="sm:hidden"
@@ -317,7 +317,7 @@ Looking forward to your response!`
                 </a>
             </div>
             <div className="mb-4">
-            <span className="text-2xl font-bold mr-2">
+            <span className="text-2xl font-bold mr-2" id="productPrice">
               ₹{price.toFixed(2)}
               </span>
               <span className="text-gray-500">
@@ -329,7 +329,7 @@ Looking forward to your response!`
               totalReviews={ratingReviews.reviews}
            />
            
-            <p className="text-gray-700 mb-6">{description}</p>
+            <p className="text-gray-700 mb-6" id="productDescription">{description}</p>
               <Variations productId={productData.id} variationTypes={productData.variationTypes} productName={productData.name} mainImage={productData.mainImage} onVariationUpdate={handleVariationUpdates} variations={variationData as Variation[]} unavailableComb={unavailableVariations}  />
          
 
